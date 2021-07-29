@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './index.css'
 import logo from '../../image/laoma-logo.png'
 import {NavItems} from "./NavItems/NavItems";
+import {Link} from "react-router-dom";
 
 class HeaderNav extends Component {
     state = {clicked: false}
@@ -24,9 +25,9 @@ class HeaderNav extends Component {
                     {NavItems.map((item, index)=> {
                         return (
                             <li key={index}>
-                                <a className={item.cName} href={item.url}>
+                                <Link className={item.cName} href={item.url} to={item.title}>
                                     {item.title}
-                                </a>
+                                </Link>
                             </li>
                         )
                     })}
