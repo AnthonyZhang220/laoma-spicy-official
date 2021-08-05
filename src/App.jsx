@@ -8,7 +8,7 @@ import Home from "./components/Body/Home";
 const App = ()=> {
     return (
       <Router>
-                <HeaderNav/>
+            <HeaderNav/>
         <Route exact path="/">
             <Home/>
         </Route>

@@ -1,5 +1,4 @@
 import React from 'react';
-import items from '../../../../data/items';
 
 const Items = ({items})=> {
     return (
