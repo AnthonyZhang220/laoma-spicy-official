@@ -9,11 +9,11 @@ const App = ()=> {
     return (
       <Router>
             <HeaderNav/>
-        <Route exact path="/">
+        <Route path="/Home">
             <Home/>
         </Route>
-        <Route path="/Menu" component={Menu}>
-            {/* <Menu/> */}
+        <Route path="/Menu">
+            <Menu/>
         </Route>
         <Route path="/Contact Us">
           <Contact/>
