@@ -6,17 +6,17 @@ export const NavItems = [
     },
     {
         title:'Menu',
-        url:'/menu',
+        url:'/Menu',
         cName: 'nav-links'
     },
     {
         title:'Delivery',
-        url:'/delivery',
+        url:'/Delivery',
         cName: 'nav-links'
     },
     {
         title:'Contact us',
-        url:'/contactus',
+        url:'/Contact_us',
         cName: 'nav-links'
     },
 ]

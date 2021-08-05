@@ -21,19 +21,21 @@ class HeaderNav extends Component {
                     <i className={this.state.clicked ? 'fas fa-times':'fas fa-bars'}>
                     </i>
                 </div>
+                <Router>
                 <ul className={this.state.clicked? 'nav-menu active': 'nav-menu'}>
                     {NavItems.map((item, index)=> {
                         return (
                             <li key={index}>
-                                <Router>
-                                    <Link className={item.cName} href={item.url} to={item.title}>
-                                    {item.title}
+                                {/* <Router> */}
+                                    <Link className={item.cName} href={item.url} to={item.url}>
+                                        {item.title}
                                     </Link>
-                                </Router>
+                                {/* </Router> */}
                             </li>
                         )
                     })}
                 </ul>
+                </Router>
             </nav>
 
         );
