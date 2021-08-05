@@ -29,7 +29,7 @@ class HeaderNav extends Component {
                         return (
                             <li key={index}>
                                 <Router>
-                                    <Link className={item.cName} href={item.url} to={item.url}></Link>
+                                    <Link className={item.cName} href={item.url} to={item.title}></Link>
                                 </Router>
                             </li>
                         )

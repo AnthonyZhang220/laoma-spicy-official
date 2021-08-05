@@ -1,5 +1,5 @@
 import HeaderNav from "./components/HeaderNav/index";
-import { BrowerRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Menu from "./components/Body/Menu";
 import Contact from "./components/Body/Contact";
