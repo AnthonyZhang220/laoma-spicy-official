@@ -22,7 +22,15 @@ const items = [
         title:'Shrimp Ball',
         category:'MaLaTang',
         price:14.99,
-        img: './img/shrimp ball.png',
+        img: "./img/shrimp ball.png",
+        description: 'I am beef',
+    },
+    {
+        id:nanoid(),
+        title:'Shrimp Ball',
+        category:'MaLa Xiangguo',
+        price:14.99,
+        img: "./img/shrimp ball.png",
         description: 'I am beef',
     },
 

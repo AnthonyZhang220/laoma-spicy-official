@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import './index.css'
 import logo from '../../image/laoma-logo.png'
 import {NavItems} from "./NavItems/NavItems";
-import {Link} from "react-router-dom";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import Menu from '../Body/Menu';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 class HeaderNav extends Component {
     state = {clicked: false}
@@ -29,7 +26,9 @@ class HeaderNav extends Component {
                         return (
                             <li key={index}>
                                 <Router>
-                                    <Link className={item.cName} href={item.url} to={item.title}></Link>
+                                    <Link className={item.cName} href={item.url} to={item.title}>
+                                    {item.title}
+                                    </Link>
                                 </Router>
                             </li>
                         )
