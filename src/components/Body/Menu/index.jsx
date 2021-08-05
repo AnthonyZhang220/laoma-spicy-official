@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import items from "../../../data/items";
 import Categories from "./Categories";
 import Items from "./Items";
-import {Route} from "react-router-dom";
-import {NavItems} from "../../HeaderNav/NavItems/NavItems";
 import './index.css'
 
 const allCategories = ['all', ...new Set(items.map((item) => item.category))];
@@ -23,7 +21,7 @@ function Menu() {
 
     return (
         <main>
-            <Route path={NavItems.title} component={Menu}/>
+            {/* <Route path={NavItems.title} component={Menu}/> */}
             <section className='menu section'>
                 <Categories categories={categories} filterItems={filterItems}/>
                 <Items items={menuItems}/>

@@ -6,7 +6,7 @@ class Contact extends Component {
     render() {
         return (
             <div className='ContactBody'>
-                <Route path={NavItems.title} component={Contact}/>
+                {/* <Route path={NavItems.title} component={Contact}/> */}
                 {/*Haven't learn PHP yet.*/}
                 <form action='#'>
                     <label htmlFor="name">Name:</label><br/>
@@ -14,7 +14,6 @@ class Contact extends Component {
                     <label htmlFor="name">Email:</label><br/>
                     <input type='text' id='email' name='email'/><br/>
                 </form>
-
             </div>
         );
     }
