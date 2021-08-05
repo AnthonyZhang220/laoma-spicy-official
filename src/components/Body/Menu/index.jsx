@@ -21,7 +21,6 @@ function Menu() {
 
     return (
         <main>
-            {/* <Route path={NavItems.title} component={Menu}/> */}
             <section className='menu section'>
                 <Categories categories={categories} filterItems={filterItems}/>
                 <Items items={menuItems}/>
