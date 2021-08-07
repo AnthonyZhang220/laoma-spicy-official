@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './index.css'
 import logo from '../../image/laoma-logo.png'
-import {NavItems} from "./NavItems/NavItems";
-import { BrowserRouter as Link } from 'react-router-dom';
+import { NavItems } from "./NavItems/NavItems";
+import { Link } from 'react-router-dom';
 
 class HeaderNav extends Component {
     state = {clicked: false}
@@ -21,11 +21,11 @@ class HeaderNav extends Component {
                     <i className={this.state.clicked ? 'fas fa-times':'fas fa-bars'}>
                     </i>
                 </div>
-                <ul className={this.state.clicked? 'nav-menu active': 'nav-menu'}>
+                <ul className={this.state.clicked ? 'nav-menu active': 'nav-menu'}>
                     {NavItems.map((item, index)=> {
                         return (
                             <li key={index}>
-                                    <Link className={item.cName} href={item.url} to={item.title}>
+                                    <Link className={item.cName} to={item.url}>
                                         {item.title}
                                     </Link>
                             </li>
