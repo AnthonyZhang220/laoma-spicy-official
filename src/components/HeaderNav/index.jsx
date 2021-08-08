@@ -14,8 +14,10 @@ class HeaderNav extends Component {
     render() {
         return (
             <nav className="NavItems">
-                <div>
+                <div> 
+                    <Link to='/'>
                     <img className="NavLogo" src={logo} alt='LaoMa Logo'/>
+                    </Link>
                 </div>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times':'fas fa-bars'}>
@@ -25,7 +27,7 @@ class HeaderNav extends Component {
                     {NavItems.map((item, index)=> {
                         return (
                             <li key={index}>
-                                    <Link className={item.cName} to={item.url}>
+                                    <Link className={item.cName} href={item.url} to={item.url}>
                                         {item.title}
                                     </Link>
                             </li>

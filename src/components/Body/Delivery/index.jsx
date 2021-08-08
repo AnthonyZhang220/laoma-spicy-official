@@ -4,7 +4,7 @@ export default class Delivery extends Component {
     render() {
         return (
             <div>
-                Delivery Components......
+                <h2>Delivery Components......</h2>
             </div>
         )
     }

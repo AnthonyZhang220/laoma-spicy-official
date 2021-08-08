@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import items from "../../../data/items";
+import items from './Items/items';
 import Categories from "./Categories";
 import Items from "./Items";
 import './index.css'
