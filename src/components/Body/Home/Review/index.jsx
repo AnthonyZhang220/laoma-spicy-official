@@ -26,7 +26,6 @@ export default function Review(){
 
                     
                 })}
-                
             </div>
         </div>
     )
