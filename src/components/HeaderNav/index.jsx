@@ -6,9 +6,11 @@ import { Link } from 'react-router-dom';
 
 class HeaderNav extends Component {
     state = {clicked: false}
+    state = {mobileclicked: false}
 
     handleClick = () =>{
         this.setState({clicked: !this.state.clicked})
+        this.setState({mobileclicked: !this.state.mobileclicked})
     }
 
     render() {
@@ -27,7 +29,7 @@ class HeaderNav extends Component {
                     {NavItems.map((item, index)=> {
                         return (
                             <li key={index}>
-                                    <Link className={item.cName} href={item.url} to={item.url}>
+                                    <Link className={item.cName} to={item.url}>
                                         {item.title}
                                     </Link>
                             </li>
