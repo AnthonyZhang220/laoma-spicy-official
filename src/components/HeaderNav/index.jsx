@@ -1,35 +1,31 @@
-import React, { Component } from 'react';
+import React, {useState} from 'react';
 import './index.css'
 import logo from '../../image/laoma-logo.png'
 import { NavItems } from "./NavItems/NavItems";
 import { Link } from 'react-router-dom';
 
-class HeaderNav extends Component {
-    state = {clicked: false}
-    state = {mobileclicked: false}
+function HeaderNav (){
+    const [click, setClick] = useState(false);
 
-    handleClick = () =>{
-        this.setState({clicked: !this.state.clicked})
-        this.setState({mobileclicked: !this.state.mobileclicked})
-    }
+    const handleClick = () => setClick(!click)
+    const closeMobileMenu = () => setClick(false);
 
-    render() {
-        return (
+    return (
             <nav className="NavItems">
                 <div> 
                     <Link to='/'>
                     <img className="NavLogo" src={logo} alt='LaoMa Logo'/>
                     </Link>
                 </div>
-                <div className="menu-icon" onClick={this.handleClick}>
-                    <i className={this.state.clicked ? 'fas fa-times':'fas fa-bars'}>
+                <div className="menu-icon" onClick={handleClick}>
+                    <i className={click ? 'fas fa-times':'fas fa-bars'}>
                     </i>
                 </div>
-                <ul className={this.state.clicked ? 'nav-menu active': 'nav-menu'}>
+                <ul className={click ? 'nav-menu active': 'nav-menu'}>
                     {NavItems.map((item, index)=> {
                         return (
                             <li key={index}>
-                                    <Link className={item.cName} to={item.url}>
+                                    <Link onClick={closeMobileMenu} className={item.cName} to={item.url}>
                                         {item.title}
                                     </Link>
                             </li>
@@ -39,7 +35,6 @@ class HeaderNav extends Component {
             </nav>
 
         );
-    }
 }
 
 export default HeaderNav;
