@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import items from './Items/items';
 import Categories from "./Categories";
 import Items from "./Items";
-import './index.css'
+// import './index.css';
 
 const allCategories = ['all', ...new Set(items.map((item) => item.category))];
 
