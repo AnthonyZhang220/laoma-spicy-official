@@ -5,6 +5,7 @@ import Contact from "./components/Body/Contact";
 import Home from "./components/Body/Home";
 import Delivery from "./components/Body/Delivery";
 import Cart from "./components/Cart";
+import Footer from './components/Footer';
 import "./App.css";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
                 <Route path="/Menu" component={Menu} />
                 <Route path="/Delivery" component={Delivery} />
                 <Route path="/Contact_Us" component={Contact} />
+                <Footer/>
                 <Cart/>
             </div>
         </Router>
