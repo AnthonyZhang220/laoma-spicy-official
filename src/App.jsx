@@ -1,27 +1,31 @@
-import HeaderNav from "./components/HeaderNav/index";
+import React,{Component} from "react";
+import HeaderNav from "./components/MainPage/HeaderNav/index";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Menu from "./components/Body/Menu";
-import Contact from "./components/Body/Contact";
-import Home from "./components/Body/Home";
-import Delivery from "./components/Body/Delivery";
-import Cart from "./components/Cart";
-import Footer from './components/Footer';
+import Menu from "./components/MainPage/Body/Menu";
+import Contact from "./components/MainPage/Body/Contact";
+import Home from "./components/MainPage/Body/Home";
+import Delivery from "./components/MainPage/Body/Delivery";
+import Cart from "./components/MainPage/Cart";
+import Footer from './components/MainPage/Footer';
 import "./App.css";
 
-const App = () => {
-    return (
-        <Router>
-            <div>
-                <HeaderNav />
-                <Route exact path="/" component={Home} />
-                <Route path="/Menu" component={Menu} />
-                <Route path="/Delivery" component={Delivery} />
-                <Route path="/Contact_Us" component={Contact} />
-                <Footer/>
-                <Cart/>
-            </div>
-        </Router>
-    );
+class App extends Component {
+    render(){
+        return (
+            <Router>
+                <div>
+                    <HeaderNav/>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/Menu" component={Menu} />
+                    <Route path="/Delivery" component={Delivery} />
+                    <Route path="/Contact_Us" component={Contact} />
+                    <Footer/>
+                    <Cart/>
+                </div>
+            </Router>
+        );
+    }
+    
 };
 
 export default App;

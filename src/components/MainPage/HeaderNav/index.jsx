@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './index.css'
-import logo from '../../image/laoma-logo.png'
+import logo from '../../../image/laoma-logo.png';
 import { NavItems } from "./NavItems/NavItems";
 import { Link } from 'react-router-dom';
 

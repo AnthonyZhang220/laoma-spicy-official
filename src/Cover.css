@@ -1,0 +1,12 @@
+body {
+  background-image:url('./bg.png');
+  background-color: #cfb85b;
+  background-size: fill;
+  background-position: center center;
+  margin: 0;
+}
+
+.main-cover{
+  font-size: 5rem;
+  color: white;
+}
