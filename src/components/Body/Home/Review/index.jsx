@@ -5,8 +5,14 @@ import './index.css';
 
 
 export default function Review(){
+
+    const randomizer =()=>{
+        let number = Math.floor(Math.random()* (people.length))
+        return number;
+    }
+
     const [people, setPeople]= useState(reviewdata);
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(randomizer());
 
     useEffect(()=>{
         const lastIndex = people.length - 1;

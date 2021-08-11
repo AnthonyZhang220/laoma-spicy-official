@@ -23,7 +23,7 @@ const reviewdata =[
     {
         id: nanoid(),   
         userphoto: "",
-        username: "1",
+        username: "小张",
         star: 5,
         comment_time:"",
         description: "",
@@ -32,7 +32,7 @@ const reviewdata =[
     {
         id: nanoid(),   
         userphoto: "",
-        username: "1",
+        username: "小余",
         star: 5,
         comment_time:"",
         description: "",
@@ -41,7 +41,7 @@ const reviewdata =[
     {
         id: nanoid(),   
         userphoto: "",
-        username: "1",
+        username: "吴亦凡",
         star: 5,
         comment_time:"",
         description: "",
