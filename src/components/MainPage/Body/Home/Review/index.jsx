@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {FiChevronRight, FiChevronLeft} from 'react-icons/fi';
 import reviewdata from './reviewdata';
-import './index.css';
+import styles from './index.module.css';
 
 
 export default function Review(){
@@ -32,11 +32,11 @@ export default function Review(){
     },[index])
 
     return (
-        <section className='main'>
-            <div className='title'>
+        <section className={styles.main}>
+            <div className={styles.title}>
                 <h2>Reviews</h2>
             </div>
-            <div className='review-main'>
+            <div className={styles.review_main}>
                 {people.map((person, personIndex)=>{
                     const {id, username, userphoto, description, reviewphoto, star} = person;
                     
@@ -52,21 +52,20 @@ export default function Review(){
                     }
 
                     return (
-                        <article className={position} key={id}>
-                            <img src={userphoto} alt={username} className='person-img'/>
+                        <article className={styles.position} key={id}>
+                            <img src={userphoto} alt={username} className={styles.person_img}/>
                             <h4>{username}</h4>
-                            <p className='title'>{star}</p>
-                            <p className='text-review'>{`"${description}"`}</p>
-                            <img className='review-img' src={reviewphoto} alt={username} />
-                            
+                            <p className={styles.title}>{star}</p>
+                            <p className={styles.text_review}>{`"${description}"`}</p>
+                            <img className={styles.review_img} src={reviewphoto} alt={username} />
                         </article>
 
                     )
                 })}
-                <button className='prev' onClick={()=> setIndex(index - 1)}>
+                <button className={styles.prev} onClick={()=> setIndex(index - 1)}>
                     <FiChevronLeft/>
                 </button>
-                <button className='next' onClick={()=> setIndex(index + 1)}>
+                <button className={styles.next} onClick={()=> setIndex(index + 1)}>
                     <FiChevronRight/>
                 </button>
             </div>

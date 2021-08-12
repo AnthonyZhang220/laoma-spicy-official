@@ -7,13 +7,13 @@ import Home from "./components/MainPage/Body/Home";
 import Delivery from "./components/MainPage/Body/Delivery";
 import Cart from "./components/MainPage/Cart";
 import Footer from './components/MainPage/Footer';
-import "./App.css";
+import styles from "./App.module.css";
 
 class App extends Component {
     render(){
         return (
             <Router>
-                <div>
+                <div className={styles.body}>
                     <HeaderNav/>
                     <Route exact path="/" component={Home} />
                     <Route path="/Menu" component={Menu} />

@@ -147,7 +147,7 @@ Slider
   margin-right: 1rem;
   font-weight: 700;
 }
-.review-main {
+.review_main {
   margin: 0 auto;
   margin-top: 0rem;
   width: 80vw;
@@ -159,7 +159,7 @@ Slider
   overflow: hidden;
 }
 
-.review-img{
+.review_img{
     margin-top: auto;
     margin-bottom: auto;
     width: 400px;
@@ -169,7 +169,7 @@ Slider
     box-shadow: var(--dark-shadow);
 }
 
-.person-img {
+.person_img {
   border-radius: 50%;
   margin-bottom: 1rem;
   width: 100px;
@@ -188,7 +188,7 @@ article h4 {
   margin-bottom: 0.75rem;
   color: linear-gradient(90deg, rgb(61,49,49) 0%, rgba(49,49,49,1)100%);
 }
-.text-review {
+.text_review {
   text-transform: capitalize;
   max-width: 35em;
   margin: 0 auto;
@@ -229,7 +229,7 @@ article h4 {
   right: 0;
 }
 @media (min-width: 960px) {
-  .text-review {
+  .text_review {
     max-width: 45em;
   }
   .prev,
