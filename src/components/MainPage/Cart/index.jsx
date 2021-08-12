@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './index.css'
+import styles from './index.module.css';
 
 class Cart extends Component {
     render() {
         return (
-            <div className='cart'>
-                <h2 className='text-cart'>Cart Component.....</h2> 
+            <div className={styles.cart}>
+                <h2 className={styles.text_cart}>Cart Component.....</h2> 
             </div>
                 
         )

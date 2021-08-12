@@ -53,7 +53,7 @@ export default function Review(){
 
                     return (
                         // still need to fix styles with dynamic position
-                        <article className={styles.position} key={id}> 
+                        <article className={`${styles.article} ${styles.position}`} key={id}> 
                             <img src={userphoto} alt={username} className={styles.person_img}/>
                             <h4>{username}</h4>
                             <p className={styles.title}>{star}</p>

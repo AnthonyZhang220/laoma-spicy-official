@@ -25,7 +25,7 @@ function HeaderNav (){
                     {NavItems.map((item, index)=> {
                         return (
                             <li key={index}>
-                                    <Link onClick={closeMobileMenu} className={item.cName} to={item.url}>
+                                    <Link onClick={closeMobileMenu} className={`styles.${item.cName}`} to={item.url}>
                                         {item.title}
                                     </Link>
                             </li>
