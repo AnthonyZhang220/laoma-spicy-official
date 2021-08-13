@@ -7,6 +7,7 @@ import Home from "./components/MainPage/Body/Home";
 import Delivery from "./components/MainPage/Body/Delivery";
 import Cart from "./components/MainPage/Cart";
 import Footer from './components/MainPage/Footer';
+import CartButton from './components/MainPage/Cart/CartButton'
 import styles from "./App.module.css";
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
                     <Route path="/Delivery" component={Delivery} />
                     <Route path="/Contact_Us" component={Contact} />
                     <Footer/>
+                    <CartButton/>
                     <Cart/>
                 </div>
             </Router>

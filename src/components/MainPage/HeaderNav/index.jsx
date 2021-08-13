@@ -18,14 +18,14 @@ function HeaderNav (){
                     </Link>
                 </div>
                 <div className={styles.menu_icon} onClick={handleClick}>
-                    <i className={click ? 'fas fa-times':'fas fa-bars'}>
+                    <i className={click ? 'fas fa-times' : 'fas fa-bars'}>
                     </i>
                 </div>
                 <ul className={click ? styles.nav_menu.active : styles.nav_menu}>
                     {NavItems.map((item, index)=> {
                         return (
                             <li key={index}>
-                                    <Link onClick={closeMobileMenu} className={`styles.${item.cName}`} to={item.url}>
+                                    <Link onClick={closeMobileMenu} className={styles[item.cName]} to={item.url}>
                                         {item.title}
                                     </Link>
                             </li>

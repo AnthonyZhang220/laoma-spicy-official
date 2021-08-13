@@ -130,7 +130,7 @@ p {
     max-width: var(--max-width);
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 960px) {
     .section {
         width: 95vw;
     }
