@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router , Link } from 'react-router-dom';
+import Tiles from './Tiles';
 import styles from './Cover.module.css';
 
 export default class Cover extends Component {
@@ -7,6 +8,7 @@ export default class Cover extends Component {
     return (
       <div className={styles.main_cover}>
         <Router>
+        
         <Link to='/'>Cover Page Component........</Link>
         </Router>
       </div>
