@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
+import React,{useState} from "react";
 
-export default class Tiles extends Component {
-  render() {
+function Tiles() {
+    const [click, setClick] = useState(false);
+
+    let side = 'front';
+    if 
+
     return (
-      <div>
-        
+      <div className='main'>
+        <button className={click ? side : } onClick={setClick}></button>
+        <h2>Tiles Component........</h2>
       </div>
     )
-  }
 }
+
+export default Tiles;
