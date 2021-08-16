@@ -178,7 +178,7 @@ Slider
   border: 2px solid var(--clr-grey-8);
   box-shadow: var(--dark-shadow);
 }
-article h4 {
+:local(article h4) {
   text-transform: uppercase;
   color: var(--clr-primary-5);
   margin-bottom: 0.25rem;

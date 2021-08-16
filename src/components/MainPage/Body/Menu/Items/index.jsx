@@ -7,7 +7,7 @@ const Items = ({items})=> {
                 const {id, title, images, description, price} = menuItem;
 
                 return (
-                    <article key={id} className='menu_items'>
+                    <menuitems key={id} className='menu_items'>
                         <img src={images} alt={title} className='photo'/>
                         <div className='item_info'>
                             <header>
@@ -16,7 +16,7 @@ const Items = ({items})=> {
                             </header>
                             <p className='item_text'>{description}</p>
                         </div>
-                    </article>
+                    </menuitems>
                 );
             })}
             </div>
