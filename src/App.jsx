@@ -9,6 +9,7 @@ import Cart from "./components/MainPage/Cart";
 import Footer from './components/MainPage/Footer';
 import CartButton from './components/MainPage/Cart/CartButton'
 import styles from "./App.module.css";
+import './components/MainPage/Body/Menu/index.css';
 
 class App extends Component {
     render(){
