@@ -7,25 +7,23 @@ import { Link } from 'react-router-dom';
 function HeaderNav (){
     const [click, setClick] = useState(false);
     const [navbar,setNavbar] = useState(false);
+    const [isHome,setIsHome] = useState(false);
 
     const handleClick = () => setClick(!click)
     const closeMobileMenu = () => setClick(false);
 
     const changeBackground= () =>{
-        if(window.scrollY >= 100){
+        if(window.scrollY >= 50){
             setNavbar(true);
         } else{
             setNavbar(false);
         }
     }
 
-
     window.addEventListener('scroll', changeBackground)
 
-
-
     return (
-            <nav className={navbar ? styles.NavItems : styles.NavItems}>
+            <nav className={`${navbar && styles.active} ${styles.NavItems}`}>
                 <div> 
                     <Link to='/'>
                     <img className={styles.NavLogo} src={logo} alt='LaoMa Logo'/>
@@ -35,7 +33,7 @@ function HeaderNav (){
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'}>
                     </i>
                 </div>
-                <ul className={click ? styles.nav_menu.active : styles.nav_menu}>
+                <ul className={`${click && styles.active} ${styles.nav_menu}`}>
                     {NavItems.map((item, index)=> {
                         return (
                             <li key={index}>

@@ -13,7 +13,7 @@
 	padding: 0 30px;
 	height: 960px;
 	width:100%;
-	position: relative;
+	position: initial;
 }
 
 .background {
@@ -48,6 +48,16 @@
 	font-size: 24px;
 	text-align: center;
 	max-width: 600px;
+}
+
+@media screen and(min-width: 960px) {
+	.video {
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		object-fit: fill;
+	}
+
 }
 
 @media screen and(max-width: 768px) {

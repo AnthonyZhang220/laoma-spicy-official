@@ -4,7 +4,8 @@ body {
     padding:0;
     font-family: 'Montserrat', sans-serif;
     /* background-image:url('./bg.png'); */
-    background-color: transparent !important;
+    background-color: transparent;
     background-size: fill;
     background-position: center center;
+    /* overflow-y: hidden; */
 }
