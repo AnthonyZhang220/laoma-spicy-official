@@ -6,12 +6,26 @@ import { Link } from 'react-router-dom';
 
 function HeaderNav (){
     const [click, setClick] = useState(false);
+    const [navbar,setNavbar] = useState(false);
 
     const handleClick = () => setClick(!click)
     const closeMobileMenu = () => setClick(false);
 
+    const changeBackground= () =>{
+        if(window.scrollY >= 100){
+            setNavbar(true);
+        } else{
+            setNavbar(false);
+        }
+    }
+
+
+    window.addEventListener('scroll', changeBackground)
+
+
+
     return (
-            <nav className={styles.NavItems}>
+            <nav className={navbar ? styles.NavItems : styles.NavItems}>
                 <div> 
                     <Link to='/'>
                     <img className={styles.NavLogo} src={logo} alt='LaoMa Logo'/>
