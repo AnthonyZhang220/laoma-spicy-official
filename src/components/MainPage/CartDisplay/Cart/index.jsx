@@ -5,7 +5,8 @@ class Cart extends Component {
     render() {
         return (
             <div className={styles.cart}>
-                <h2 className={styles.text_cart}>Cart Component.....</h2> 
+                <h2 className={styles.text_cart}>
+                    Cart Component.....</h2> 
             </div>
                 
         )

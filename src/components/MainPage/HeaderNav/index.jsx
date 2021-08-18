@@ -15,7 +15,7 @@ function HeaderNav (){
     const changeBackground= () =>{
         if(window.scrollY >= 50){
             setNavbar(true);
-        } else{
+        } else {
             setNavbar(false);
         }
     }
