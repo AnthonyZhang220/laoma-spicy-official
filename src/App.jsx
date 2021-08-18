@@ -5,7 +5,7 @@ import Contact from "./components/MainPage/Body/Contact";
 import Home from "./components/MainPage/Body/Home";
 import Delivery from "./components/MainPage/Body/Delivery";
 import Footer from './components/MainPage/Footer';
-import CartButton from './components/MainPage/CartDisplay/CartButton'
+import CartButton from './components/MainPage/CartDisplay/CartButton';
 import CartDisplay from "./components/MainPage/CartDisplay";
 import Cart from './components/MainPage/CartDisplay/Cart';
 import styles from "./App.module.css";
@@ -27,8 +27,8 @@ const App = () => {
                 <Route path="/Contact_Us" >
                     <Contact />
                 </Route>
-                <Footer />
                 <CartButton />
+                <Footer />
             </div>
         </Router>
     );

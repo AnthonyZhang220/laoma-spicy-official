@@ -25,7 +25,7 @@ function CartButton() {
 			className={`${carticon && styles.active} ${styles.cart_icon}`}
       onClick={handleClick}
 		>
-				<i className={"fas fa-shopping-cart"}>{handleClick ? <Cart/> : null}</i>
+				<i className={"fas fa-shopping-cart"}>{click ? <Cart/> : null}</i>
 		</div>
     
 	);
