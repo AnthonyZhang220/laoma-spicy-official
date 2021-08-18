@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Draggable from "react-draggable";
 import styles from "./index.module.css";
 import Cart from "../Cart";
 
@@ -20,14 +21,19 @@ function CartButton() {
 	const handleClick = () => setClick(!click);
 
 	return (
+		<Draggable>
 		<div
 			drag={drag}
 			className={`${carticon && styles.active} ${styles.cart_icon}`}
-      onClick={handleClick}
+			onClick={handleClick}
 		>
-				<i className={"fas fa-shopping-cart"}>{click ? <Cart/> : null}</i>
+			<i
+				className={"fas fa-shopping-cart"}
+			>
+				{/* {click ? <Cart /> : null} */}
+			</i>
 		</div>
-    
+		</Draggable>
 	);
 	// setClick(true);
 	// setVisible(true);
