@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import styles from './index.module.css';
-import logo from '../../../image/laoma-logo.png';
 import { NavItems } from "./NavItems/NavItems";
 import { Link } from 'react-router-dom';
 
@@ -24,11 +23,6 @@ function HeaderNav (){
 
     return (
             <nav className={`${navbar && styles.active} ${styles.NavItems}`}>
-                <div> 
-                    <Link to='/'>
-                    <img className={styles.NavLogo} src={logo} alt='LaoMa Logo'/>
-                    </Link>
-                </div>
                 <div className={styles.menu_icon} onClick={handleClick}>
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'}>
                     </i>

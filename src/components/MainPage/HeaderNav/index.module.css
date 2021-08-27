@@ -15,14 +15,6 @@
     background: linear-gradient(90deg, rgb(61,49,49) 0%, rgba(49,49,49,1)100%);
 }
 
-.NavLogo{
-    margin-top: auto;
-    margin-bottom: auto;
-    justify-self: left;
-    margin-left: 20px;
-    cursor: pointer;
-}
-
 .nav_menu{
     display: grid;
     grid-template-columns: repeat(4,auto);
@@ -30,8 +22,8 @@
     list-style: none;
     text-align: center;
     width:60vw;
-    justify-content: end;
-    margin-right:2rem;
+    justify-content: center;
+    margin-right:1rem;
 }
 
 .nav_links{
