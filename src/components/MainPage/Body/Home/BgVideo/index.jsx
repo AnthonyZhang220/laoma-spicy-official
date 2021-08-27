@@ -18,9 +18,3 @@ export default class BgVideo extends Component {
     )
   }
 }
-
-  // marginTop: "-20px",
-  // height: "100vh",
-  // width: "100%"
-  // lat: 40.73097610496431, lng: -73.99342474701751
-  // AIzaSyDt63q5tdWn24WfuIZ8XElCL7L849lpqhs
