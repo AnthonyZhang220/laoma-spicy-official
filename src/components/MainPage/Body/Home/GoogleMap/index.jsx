@@ -30,10 +30,10 @@ const MapContainer = () => {
   const mapStyles = () => {
     return {
       marginTop: "-20px",
-      height: "60vh",
+      height: "70vh",
       width: "100%",
-      marginBottom:"0px",
-      
+      marginBottom:"10%",
+      position:"fixed",
     }
   }
 
