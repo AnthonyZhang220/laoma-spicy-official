@@ -53,6 +53,9 @@ const MapContainer = () => {
           zoom={17}
           center={defaultCenter}
         >
+          <InfoWindow position={defaultCenter}>
+
+          </InfoWindow>
           {
             selected.location ? (
               <Marker

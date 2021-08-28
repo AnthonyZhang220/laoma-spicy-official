@@ -8,6 +8,7 @@ import Footer from './components/MainPage/Footer';
 import CartButton from './components/MainPage/CartDisplay/CartButton';
 import CartDisplay from "./components/MainPage/CartDisplay";
 import Cart from './components/MainPage/CartDisplay/Cart';
+import Blank from './components/MainPage/Blank'
 import styles from "./App.module.css";
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
                     <Contact />
                 </Route>
                 <CartButton />
+                <Blank/>
                 <Footer />
             </div>
         </Router>
