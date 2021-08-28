@@ -22,6 +22,7 @@ function CartButton() {
 
 	return (
 		<Draggable>
+		<span>
 		<div
 			drag={drag}
 			className={`${carticon && styles.active} ${styles.cart_icon}`}
@@ -33,6 +34,7 @@ function CartButton() {
 				{/* {click ? <Cart /> : null} */}
 			</i>
 		</div>
+		</span>
 		</Draggable>
 	);
 	// setClick(true);

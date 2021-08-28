@@ -1,13 +1,14 @@
 import React from 'react';
+import styles from '../index.module.css'
 
 const Categories = ({ categories, filterItems }) => {
     return (
-        <div className='btn_container'>
+        <div className={styles.btn_container}>
             {categories.map((category, index) => {
                 return (
                     <button
                         type="button"
-                        className='filter_btn'
+                        className={styles.filter_btn}
                         key={index}
                         onClick={() => filterItems(category)}
                     >
