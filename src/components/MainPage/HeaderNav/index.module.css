@@ -24,23 +24,25 @@
     width:60vw;
     justify-content: center;
     margin-right:1rem;
+    margin:0;
 }
 
 .nav_links{
-    color: #cfb85b;
+    color: #b39b42;
     text-decoration: none;
     padding: 0.5rem 1rem;
 }
 
 .nav_links:hover{
-    color: #ffffff;
+    color: #cbb35a;
     border-radius: 2px;
     transition: all 0.5s ease-out;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    text-shadow: 6px 6px 2px #222;
 }
 
 .cart_icon{
-    color: #cfb85b;
+    color: #b39b42;
     cursor: pointer;
     justify-content:end;
     display:block;

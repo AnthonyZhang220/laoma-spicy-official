@@ -113,7 +113,8 @@ h4 {
 /* main */
 .main {
 	width: 100vw;
-	margin: 5rem auto;
+	height:700px;
+	margin: 0 auto;
 	max-width: 100%;
 	background: gainsboro;
 	z-index: -1;
@@ -252,6 +253,8 @@ article {
 	height: 100%;
 	opacity: 0;
 	transition: var(--transition);
+	margin-bottom:20px;
+	margin-top:20px;
 }
 article.activeSlide {
 	opacity: 1;

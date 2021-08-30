@@ -15,8 +15,8 @@ export const NavItems = [
         cName: 'nav_links'
     },
     {
-        title:'Contact us',
-        url:'/Contact_us',
+        title:'Reservations',
+        url:'/Reservations',
         cName: 'nav_links'
     },
 ]

@@ -16,6 +16,7 @@ const Items = ({items})=> {
                                 <h4 className={styles.price}>${price}</h4>
                             </header>
                             <p className={styles.item_text}>{description}</p>
+                            <button class={styles.addtocart}>Add to Cart</button>
                         </div>
                     </menuitems>
                 );

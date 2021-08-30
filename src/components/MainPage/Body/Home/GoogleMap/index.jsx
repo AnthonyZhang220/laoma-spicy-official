@@ -32,8 +32,8 @@ const MapContainer = () => {
       marginTop: "-20px",
       height: "70vh",
       width: "100%",
-      marginBottom:"10%",
-      position:"fixed",
+      marginBottom: "10%",
+      position: "fixed",
     }
   }
 
@@ -53,28 +53,17 @@ const MapContainer = () => {
           zoom={17}
           center={defaultCenter}
         >
-          <InfoWindow position={defaultCenter}>
-
-          </InfoWindow>
-          {
-            selected.location ? (
-              <Marker
-                position={selected.location}
-                onDragEnd={(e) => onMarkerDragEnd(e)}
-                draggable={true} />) : <Marker
-              position={defaultCenter}
-              onDragEnd={(e) => onMarkerDragEnd(e)}
-              draggable={true} />
-          }
           {
             selected.location ?
-              (
-                <InfoWindow
-                  position={selected.location}
-                  onCloseClick={() => setSelected({})}
-                >
-                </InfoWindow>
-              ) : null
+            <Marker
+              position={defaultCenter}
+              draggable={false} /> : null
+            }
+          {
+            selected.location ?
+            <InfoWindow
+              position={selected.location}
+              onCloseClick={() => setSelected({})} /> : null
           }
         </GoogleMap>
       </LoadScript>

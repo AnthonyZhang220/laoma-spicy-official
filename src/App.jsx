@@ -1,7 +1,7 @@
 import HeaderNav from "./components/MainPage/HeaderNav/index";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Menu from "./components/MainPage/Body/Menu";
-import Contact from "./components/MainPage/Body/Contact";
+import Reservations from "./components/MainPage/Body/Reservations";
 import Home from "./components/MainPage/Body/Home";
 import Delivery from "./components/MainPage/Body/Delivery";
 import Footer from './components/MainPage/Footer';
@@ -25,8 +25,8 @@ const App = () => {
                 <Route path="/Delivery" >
                     <Delivery />
                 </Route>
-                <Route path="/Contact_Us" >
-                    <Contact />
+                <Route path="/Reservations" >
+                    <Reservations />
                 </Route>
                 <CartButton />
                 <Blank/>
