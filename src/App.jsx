@@ -9,6 +9,7 @@ import CartButton from './components/MainPage/CartDisplay/CartButton';
 import CartDisplay from "./components/MainPage/CartDisplay";
 import Cart from './components/MainPage/CartDisplay/Cart';
 import Blank from './components/MainPage/Blank'
+import Retrieve from "./components/Retrieve";
 import styles from "./App.module.css";
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
                 <Route path="/Reservations" >
                     <Reservations />
                 </Route>
-                <CartButton />
+                {/* <Retrieve /> */}
                 <Blank/>
                 <Footer />
             </div>

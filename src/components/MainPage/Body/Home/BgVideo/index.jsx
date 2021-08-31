@@ -12,7 +12,7 @@ export default class BgVideo extends Component {
           {/* <p>“天下大事必做於細，天下難事必做於易。”</p> */}
         </div>
         <div className={styles.background}>
-          <video className={styles.video} autoPlay loop muted src={Video} type='video/mp4' />
+          <video className={styles.video} autoPlay loop muted playsInline src={Video} type='video/mp4' />
           <div className={window.scrollY <= 50 ? styles.arrow : styles.arrow_none}></div>
         </div>
       </div>
