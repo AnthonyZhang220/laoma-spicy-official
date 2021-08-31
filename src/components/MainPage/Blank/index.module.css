@@ -1,5 +1,8 @@
 .blank{
   background:transparent;
   height: 80px;
-  position: relative;
+  position: sticky;
+  bottom: 0;
+  top:0;
+  margin:0;
 }
