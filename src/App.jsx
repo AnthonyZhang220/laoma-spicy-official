@@ -5,9 +5,7 @@ import Reservations from "./components/MainPage/Body/Reservations";
 import Home from "./components/MainPage/Body/Home";
 import Delivery from "./components/MainPage/Body/Delivery";
 import Footer from './components/MainPage/Footer';
-import CartButton from './components/MainPage/CartDisplay/CartButton';
-import CartDisplay from "./components/MainPage/CartDisplay";
-import Cart from './components/MainPage/CartDisplay/Cart';
+// import Cart from './components/MainPage/CartDisplay/Cart';
 import Blank from './components/MainPage/Blank'
 import Retrieve from "./components/Retrieve";
 import styles from "./App.module.css";
