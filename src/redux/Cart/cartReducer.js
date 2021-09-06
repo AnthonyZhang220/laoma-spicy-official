@@ -1,10 +1,9 @@
-import nanoid from 'nanoid';
 import * as actionTypes from "./cartTypes";
 
 const INITIAL_STATE = {
 	items: [
     {
-      id: nanoid(),
+      id: 1,
       title: "beef hot spicy stew",
       category: "MaLaTang",
       price: 14.99,
@@ -13,7 +12,7 @@ const INITIAL_STATE = {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aperiam illo ut odio temporibus magnam ipsam reiciendis non inventore, harum ullam quod soluta numquam fugiat libero mollitia rem voluptatum? Autem.",
     },
     {
-      id: nanoid(),
+      id: 2,
       title: "lamb hot spicy stew",
       category: "MaLaTang",
       price: 14.99,
@@ -22,7 +21,7 @@ const INITIAL_STATE = {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aperiam illo ut odio temporibus magnam ipsam reiciendis non inventore, harum ullam quod soluta numquam fugiat libero mollitia rem voluptatum? Autem.",
     },
     {
-      id: nanoid(),
+      id: 3,
       title: "Shrimp Ball",
       category: "MaLaTang",
       price: 14.99,
@@ -31,7 +30,7 @@ const INITIAL_STATE = {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aperiam illo ut odio temporibus magnam ipsam reiciendis non inventore, harum ullam quod soluta numquam fugiat libero mollitia rem voluptatum? Autem.",
     },
     {
-      id: nanoid(),
+      id: 4,
       title: "Shrimp Ball",
       category: "MaLa Xiangguo",
       price: 14.99,

@@ -1,17 +1,17 @@
 .NavItems{
-    background: transparent;
-    height: 80px;
+    background: #ffffff;
+    height: 60px;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     position: sticky;
     top:0;
     z-index:300;
 }
 
-.active{
+.NavItems.active{
     background: linear-gradient(90deg, rgb(61,49,49) 0%, rgba(49,49,49,1)100%);
 }
 
@@ -28,26 +28,23 @@
 }
 
 .nav_links{
-    color: #b39b42;
+    letter-spacing: .25rem;
+    color: rgb(61,49,49);
     text-decoration: none;
     padding: 0.5rem 1rem;
+    background-blend-mode: overlay;
+}
+.nav_links.active{
+    color: #b39b42;
+    mix-blend-mode:unset;
 }
 
 .nav_links:hover{
-    color: #cbb35a;
+    color: #b39b42;
     border-radius: 2px;
     transition: all 0.5s ease-out;
     /* text-decoration: underline; */
     text-shadow: 6px 6px 2px #222;
-}
-
-.cart_icon{
-    color: #b39b42;
-    cursor: pointer;
-    justify-content:end;
-    display:block;
-    border-radius: 4px;
-    font-size: 2.5rem;
 }
 
 
@@ -56,20 +53,20 @@
     color: #cfb85b;
 }
 
-@media screen and (max-width: 960px){
+@media screen and (max-width: 900px){
     .NavItems{
-        background: linear-gradient(90deg, rgb(61,49,49) 0%, rgba(49,49,49,1)100%);
         position: sticky;
         top:0;
     }
 
     .nav_menu{
+        background-color: #ffffff;
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 400px;
+        height: 350px;
         position: absolute;
-        top: 80px;
+        top: 60px;
         left: -100%;
         opacity: 0;
         transition: all 0.5s ease-in;
@@ -98,14 +95,14 @@
         display: block;
         position: absolute;
         top: 0;
-        right: 0;
-        transform: translate(-60%,35%);
+        left: 0;
+        transform: translate(100%,15%);
         font-size: 2rem;
         cursor: pointer;
     }
     .fa-times{
-        transform: translate(-60%,35%);
-        padding-right: 10px;
+        transform: translate(100%,15%);
+        padding-left: 10px;
     }
 
 }

@@ -8,7 +8,7 @@ export default class BgVideo extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.center}>
-          <img className={styles.NavLogo} src={logo} alt='LaoMa Logo' />
+          <img className={styles.Logo} src={logo} alt='LaoMa Logo' />
           {/* <p>“天下大事必做於細，天下難事必做於易。”</p> */}
         </div>
         <div className={styles.background}>

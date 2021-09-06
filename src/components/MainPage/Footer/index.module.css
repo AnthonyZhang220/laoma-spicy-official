@@ -21,7 +21,8 @@
 	color: #fff;
 	margin: auto;
 	width: 95%;
-	justify-content: space-evenly;
+	justify-content: space-evenly;   
+	letter-spacing: .1rem;
 }
 .text-footer > * {
 	flex: 0 1 100%;

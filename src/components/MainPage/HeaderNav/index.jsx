@@ -31,18 +31,13 @@ function HeaderNav() {
                 {NavItems.map((item, index) => {
                     return (
                         <li key={index}>
-                            <Link onClick={closeMobileMenu} className={styles[item.cName]} to={item.url}>
-                                {item.title}
+                            <Link onClick={closeMobileMenu} className={`${navbar && styles.active} ${styles[item.cName]}`} to={item.url}>
+                                {item.title.toUpperCase()}
                             </Link>
                         </li>
                     )
                 })}
             </ul>
-            <div className={styles.cart_icon}>
-                <i
-                    className={"fas fa-shopping-cart"}
-                ></i>
-            </div>
         </nav>
 
     );

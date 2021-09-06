@@ -5,7 +5,7 @@ import Reservations from "./components/MainPage/Body/Reservations";
 import Home from "./components/MainPage/Body/Home";
 import Delivery from "./components/MainPage/Body/Delivery";
 import Footer from './components/MainPage/Footer';
-// import Cart from './components/MainPage/CartDisplay/Cart';
+import Cart from './components/MainPage/Cart';
 import Blank from './components/MainPage/Blank'
 import Retrieve from "./components/Retrieve";
 import styles from "./App.module.css";
@@ -27,8 +27,9 @@ const App = () => {
                 <Route path="/Reservations" >
                     <Reservations />
                 </Route>
+                <Cart />
                 {/* <Retrieve /> */}
-                <Blank/>
+                <Blank />
                 <Footer />
             </div>
         </Router>

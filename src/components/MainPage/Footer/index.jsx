@@ -12,7 +12,7 @@ export default class Footer extends Component {
         let currentScrollPos = window.pageYOffset;
         let maxScroll = document.body.scrollHeight - window.innerHeight;
         // console.log(maxScroll)
-        if (currentScrollPos < maxScroll) {
+        if (currentScrollPos < maxScroll || null) {
           this.setState({ opacity: "0" })
           // console.log(currentScrollPos)
         } else {

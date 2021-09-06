@@ -9,14 +9,21 @@ import bg from './reservations.jpg'
 export const Popup = ({ reservation }) => {
 
 
-    const handleClick = () =>{
+    const handleClick = () => {
         this.prop.toggle();
     }
 
     return (
         <div className={styles.modal}>
             <div className={styles.modal_content}>
-                <li>{reservation}</li>
+                <ul>
+                    {reservation.map((info, index) => {
+                        return (
+                            <li key={index}>{info.reservation}</li>
+                        )
+
+                    })}
+                </ul>
             </div>
             <button className='cancel' onClick={handleClick}>Cancel</button>
         </div>
