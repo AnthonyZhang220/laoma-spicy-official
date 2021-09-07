@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function HeaderNav() {
     const [click, setClick] = useState(false);
     const [navbar, setNavbar] = useState(false);
-    const [isHome, setIsHome] = useState(false);
+    // const [isHome, setIsHome] = useState(false);
 
     const handleClick = () => setClick(!click)
     const closeMobileMenu = () => setClick(false);
