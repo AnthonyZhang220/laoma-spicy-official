@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Menu from "./components/MainPage/Body/Menu";
 import Reservations from "./components/MainPage/Body/Reservations";
 import Home from "./components/MainPage/Body/Home";
-import Delivery from "./components/MainPage/Body/Delivery";
 import Footer from './components/MainPage/Footer';
 import Cart from './components/MainPage/Cart';
 import Blank from './components/MainPage/Blank'
@@ -20,9 +19,6 @@ const App = () => {
                 </Route>
                 <Route path="/Menu" >
                     <Menu />
-                </Route>
-                <Route path="/Delivery" >
-                    <Delivery />
                 </Route>
                 <Route path="/Reservations" >
                     <Reservations />

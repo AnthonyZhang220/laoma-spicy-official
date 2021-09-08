@@ -10,11 +10,6 @@ export const NavItems = [
         cName: 'nav_links'
     },
     {
-        title:'Delivery',
-        url:'/Delivery',
-        cName: 'nav_links'
-    },
-    {
         title:'Reservations',
         url:'/Reservations',
         cName: 'nav_links'

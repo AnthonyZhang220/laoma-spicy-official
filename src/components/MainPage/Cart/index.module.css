@@ -3,72 +3,125 @@
 	right: -100%;
 	width: 60%;
 	height: 100%;
-  top:0;
+	top: 0;
 	justify-content: center;
 	position: fixed;
-	display: flex;
 	font-size: 1.5rem;
 	/* translate: 200% 0%; */
 	z-index: 500;
-	overflow-y: scroll;
 	box-shadow: 5px 10px 18px #888888;
+	transition: all 0.75s ease-in-out;
 }
 
-.text_cart {
-	color:rgb(61, 49, 49) ;
-	/* margin-top: auto; */
+.cart_section {
+	overflow-y: auto;
+	height: 50%;
 }
 
+.cart_title {
+	text-align: center;
+	color: rgb(61, 49, 49);
+}
+
+.cart_title_underline {
+	width: 5rem;
+	height: 0.25rem;
+	background: var(--clr-gold);
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .cart_icon {
-	background: linear-gradient(
-		90deg,
-		rgb(61, 49, 49) 0%,
-		rgba(49, 49, 49, 1) 100%
-	);
-	color: #b39b42;
+	background-color: #b39b42;
+	color: #ffffff;
 	cursor: pointer;
 	justify-content: center;
 	display: block;
-	border-radius: 10px 0 0 10px ;
+	border-radius: 50%;
 	font-size: 2.5rem;
 	position: fixed;
-	right: 0;
-	top: 45%;
+	right: 1%;
+	top: 85%;
 	z-index: 499;
-	padding:1rem;
-	box-shadow: 5px 10px 18px #888888
+	padding: 1rem;
+	box-shadow: 5px 10px 18px #888888;
+	shape-outside: circle();
+	clip-path: circle();
+	margin: 10px;
+	transition: all 0.75s ease-in-out;
 }
 
-.cart_count{
-	color:#ffffff;
-	font-size:1.5rem;
+.cart_count {
+	color: #b39b42;
+	font-size: 1.5rem;
 	justify-content: center;
 }
-
 
 .cart.active {
 	/* background: transparent; */
 	right: 0;
 	opacity: 1;
-	transition: all 0.5s ease-in-out;
+	transition: all 1s ease-in-out;
 }
 
 .cart_icon.active {
 	/* background: transparent; */
 	right: 60%;
-	transition: all 0.5s ease-in-out;
+	transition: all 1s ease-in-out;
 }
 
-.delete{
+.cart_item {
+	text-align: center;
+}
+
+.cart_item:hover {
+	box-shadow: 5px 10px 18px #888888;
+}
+
+.cart_header {
+	display: flex;
+	justify-content: space-around;
+	border-bottom: 1px solid #b39b42;
+	padding: 10px;
+}
+.cart_placeorder {
+	position: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cart_placeorder:hover {
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+		0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.delete {
+	color: rgb(61, 49, 49);
+	font-size: 1rem;
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.delete:hover {
 	color: red;
 }
 
+.cart_detail {
+	font-family: "Open Sans", sans-serif;
+	position: relative;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	margin-top:10%;
+}
+.cart_detail > * {
+	font-size: 1.5rem;
+}
 
 @media screen and (max-width: 900px) {
 	.cart_icon {
-        top: 70%;
-		padding:0.5rem;
-        font-size: 2rem;
+		top: 80%;
+		padding: 1rem;
+		font-size: 3rem;
 	}
 }

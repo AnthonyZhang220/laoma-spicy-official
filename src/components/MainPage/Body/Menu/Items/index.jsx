@@ -11,7 +11,7 @@ const Items = ({ items, addToCart }) => {
                 const { id, title, images, description, price } = menuItem;
 
                 return (
-                    <menuitems key={id} className={styles.menu_items}>
+                    <div key={id} className={styles.menu_items}>
                         <img src={images} alt={title} className={styles.photo} />
                         <div className={styles.item_info}>
                             <header>
@@ -21,7 +21,7 @@ const Items = ({ items, addToCart }) => {
                             <p className={styles.item_text}>{description}</p>
                             <button onClick={()=> addToCart(id)} class={styles.addtocart}>Add to Cart</button>
                         </div>
-                    </menuitems>
+                    </div>
                 );
             })}
         </div>
