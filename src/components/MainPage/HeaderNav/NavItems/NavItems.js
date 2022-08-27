@@ -10,8 +10,8 @@ export const NavItems = [
         cName: 'nav_links'
     },
     {
-        title:'Reservations',
-        url:'/Reservations',
+        title:'Reservation',
+        url:'/Reservation',
         cName: 'nav_links'
     },
 ]

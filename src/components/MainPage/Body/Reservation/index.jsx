@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styles from './index.module.css';
-import bg from './reservations.jpg'
+import bg from './reservation.jpg'
 
 
 

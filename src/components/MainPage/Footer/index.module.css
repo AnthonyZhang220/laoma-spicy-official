@@ -15,7 +15,7 @@
 	height: 50px;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	grid-template-rows: repeat(2, minmax(20px, 1fr));
+	grid-template-rows: 1;
 	color: rgb(61, 49, 49);
 	margin: auto;
 	width: 95%;
@@ -59,7 +59,7 @@
 	color: rgb(61, 49, 49);
 	grid-column-start: 1;
 	grid-column-end: 5;
-	grid-row: 2;
+	grid-row: 1;
 	justify-self: start;
 	align-self: center;
 	font-size: 0.75rem;
@@ -71,7 +71,7 @@
 	align-self: center;
 	grid-column-start: 2;
 	grid-column-end: 6;
-	grid-row: 2;
+	grid-row: 1;
 	font-size: 0.75rem;
 	letter-spacing: 0.05rem;
 }
@@ -83,9 +83,9 @@ sup {
 	position: relative;
 }
 
-.delivery_icon {
+.address {
 	color: rgb(61, 49, 49);
-	grid-column-start: 5;
+	grid-column-start: 4;
 	grid-column-end: 6;
 	grid-row: 1;
 	display: flex;
@@ -94,18 +94,6 @@ sup {
 	text-decoration: none !important;
 }
 
-.fa-yelp,
-.fa-instagram,
-.uber_logo {
-	justify-self: center;
-	align-self: center;
-	text-decoration: none !important;
-	color: rgb(61, 49, 49);
-}
-
-.uber_logo {
-	height: 30px;
-}
 
 @media screen and (max-width: 1500px) {
 	/* .copyright {
@@ -118,7 +106,7 @@ sup {
 		display: none;
 	}
 
-	.delivery_icon {
+	.address {
 		grid-column-start: 3;
 		grid-column-end: 4;
 		grid-row: 1;
@@ -163,7 +151,7 @@ a{
 		justify-self: center;
 	}
 
-	.delivery_icon {
+	.address {
 		grid-column: 1;
 		grid-row: 2;
 		display:flex;

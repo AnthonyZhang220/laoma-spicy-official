@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styles from './index.module.css';
 import { NavItems } from "./NavItems/NavItems";
 import { Link } from 'react-router-dom';
+import uber_logo1 from './Uber-Eats-logo.png'
+import uber_logo from './uber-eats.svg'
 
 function HeaderNav() {
     const [click, setClick] = useState(false);
@@ -38,6 +40,17 @@ function HeaderNav() {
                     )
                 })}
             </ul>
+            <div className={styles.delivery_icon}>
+                <a href="https://www.ubereats.com/store/lao-ma-spicy-%E8%80%81%E5%AA%BD%E9%BA%BB%E8%BE%A3%E7%87%99/7BL09unDTgOoPhVr8lEmVw" target="_blank" rel='noreferrer'>
+                    <img className={styles.uber_logo} src={uber_logo} alt="uber eat" />
+                </a>
+                <a href='https://www.yelp.com/biz/laoma-spicy-new-york-2' target="_blank" rel='noreferrer'>
+                    <i className="fab fa-yelp"></i>
+                </a>
+                <a href='https://www.instagram.com/laomaspicy/' target="_blank" rel='noreferrer'>
+                    <i className="fab fa-instagram"></i>
+                </a>
+            </div>
         </nav>
 
     );
