@@ -22,6 +22,7 @@ export default function Hero() {
             <Box className="hero-wrapper-flex">
                 <Box className="hero-center"
                     sx={{
+                        position: "relative",
                         height: "100vh",
                         width: "100vw",
                         maxWidth: "100%",
@@ -29,6 +30,10 @@ export default function Hero() {
                         display: "grid",
                         gridTemplateColumns: "repeat(7, minmax(0, 1fr))",
                         gridTemplateRows: "repeat(5, minmax(0, 1fr))",
+                        background: "url('./images/bg.jpg')",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center center",
                     }}>
                     <Box className="hero-text-wrapper"
                         sx={{
@@ -45,6 +50,8 @@ export default function Hero() {
                                     lineHeight: 1.5,
                                     overflow: "hidden",
                                     zIndex: 1,
+                                    display: "flex",
+                                    flexDirection: "column",
                                 }}>
                                 <Typography variant='h1' style={{ display: "inline-flex" }}>
                                     Lao Ma Spicy
@@ -94,16 +101,20 @@ export default function Hero() {
                             sx={{
                                 borderRadius: "18px",
                                 boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                                m: 1,
+                                p: 1,
                             }}>
-                            <CardContent>
-                                <TextField id="outlined-basic" label="Date" variant="outlined" />
-                                <TextField id="outlined-basic" label="Time" variant="outlined" />
-                                <TextField id="outlined-basic" label="" variant="outlined" />
-                                <CardActions>
-                                    <Button onClick={handleBookTable}>
+                            <CardContent sx={{ m: 1, p: 1 }}>
+                                <Box sx={{
+                                    '& > :not(style)': { m: 1, width: '25ch' },
+                                }}>
+                                    <TextField id="outlined-basic" label="Date" variant="outlined" />
+                                    <TextField id="outlined-basic" label="Time" variant="outlined" />
+                                    <TextField id="outlined-basic" label="" variant="outlined" />
+                                    <Button variant="outlined" onClick={handleBookTable}>
                                         Book a Table
                                     </Button>
-                                </CardActions>
+                                </Box>
                             </CardContent>
                         </Card>
                     </Box>

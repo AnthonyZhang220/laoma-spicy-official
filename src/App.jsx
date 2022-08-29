@@ -18,7 +18,7 @@ const theme = createTheme({
     typography: {
         fontFamily: ["Open Sans", "sans-serif"].join(","),
         h1: {
-            fontSize: "3.75rem",
+            fontSize: "4rem",
         },
         h2: {
             fontSize: "3rem",
