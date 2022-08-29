@@ -1,4 +1,4 @@
-const items = [
+export const itemdetails = [
 	{
 		id: 1,
 		title: "beef hot spicy stew",
@@ -36,5 +36,3 @@ const items = [
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aperiam illo ut odio temporibus magnam ipsam reiciendis non inventore, harum ullam quod soluta numquam fugiat libero mollitia rem voluptatum? Autem.",
 	},
 ];
-
-export default items;

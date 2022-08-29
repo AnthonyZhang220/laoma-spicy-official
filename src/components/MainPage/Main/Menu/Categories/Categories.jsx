@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from '../index.module.css'
+import '../Menu.scss';
 
 const Categories = ({ categories, filterItems }) => {
     return (
-        <div className={styles.btn_container}>
+        <div className="btn_container">
             {categories.map((category, index) => {
                 return (
                     <button
                         type="button"
-                        className={styles.filter_btn}
+                        className="filter_btn"
                         key={index}
                         onClick={() => filterItems(category)}
                     >

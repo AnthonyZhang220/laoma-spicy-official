@@ -1,9 +1,9 @@
 import * as actionTypes from "./cartTypes";
 import { nanoid } from "nanoid";
-import items from "../../components/MainPage/Main/Menu/Items/items.js";
+import { itemdetails } from "../../components/MainPage/Main/Menu/Items/itemdetails";
 
 const INITIAL_STATE = {
-	items: items,
+	itemdetails: itemdetails,
 	cart: [],
 	currentItem: null,
 };
@@ -11,16 +11,20 @@ const INITIAL_STATE = {
 const cartReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case actionTypes.ADD_TO_CART:
-			const order = state.items.find((items) => items.id === action.payload.id);
+			const order = state.itemdetails.find(
+				(itemdetails) => itemdetails.id === action.payload.id
+			);
 
 			return {
 				...state,
-				cart: [...state.cart, {...order,  uniqueID: nanoid(), qty: 1 }],
+				cart: [...state.cart, { ...order, uniqueID: nanoid(), qty: 1 }],
 			};
 		case actionTypes.REMOVE_FROM_CART:
 			return {
 				...state,
-				cart: state.cart.filter((cart) => cart.uniqueID !== action.payload.uniqueID),
+				cart: state.cart.filter(
+					(cart) => cart.uniqueID !== action.payload.uniqueID
+				),
 			};
 		default:
 			return state;

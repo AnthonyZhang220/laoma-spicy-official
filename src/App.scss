@@ -1,0 +1,66 @@
+/*
+===============
+Variables
+===============
+*/
+
+:root {
+	--clr-white: #fff;
+	--clr-gold: #c59d5f;
+
+	--clr-black: #222;
+	--transition: all 0.3s linear;
+	--spacing: 0.1rem;
+	--radius: 0.25rem;
+	--light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	--dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	--fixed-width: 620px;
+}
+
+/*
+===============
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+html {
+	scrollbar-width: auto;
+	scrollbar-color: #8c8c8c #ffffff;
+	/* Chrome, Edge, and Safari */
+	*::-webkit-scrollbar {
+		width: 12px;
+	}
+
+	*::-webkit-scrollbar-track {
+		background: #ffffff;
+	}
+
+	*::-webkit-scrollbar-thumb {
+		background-color: #8c8c8c;
+		border-radius: 10px;
+		border: 3px solid #ffffff;
+	}
+}
+
+body {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	background: #f2f3f4;
+	font-family: "Open Sans", sans-serif;
+	/* background-image:url('./bg.png'); */
+	background-color: #f2f3f4;
+	/* background-size: fill; */
+	/* display:flex; */
+	/* overflow-y: hidden; */
+}
