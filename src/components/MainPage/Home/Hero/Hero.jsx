@@ -1,8 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Box from '@mui/material/Box';
-import ubereats from './ubereats.png';
-import yelp from './yelp.png';
-import instagram from './instagram.png';
 import Stack from '@mui/material/Stack';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
@@ -12,10 +9,102 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
 
-export default function Hero() {
-    const handleBookTable = () => {
 
+
+export default function Hero() {
+
+    const date = new Date();
+    const today = date.toISOString().split('T')[0]
+    const currentTime = date.getHours() + ":" + date.getMinutes()
+
+    const [input, setInput] = useState({
+        name: "",
+        date: today,
+        time: currentTime,
+        phone: "",
+        people: 1,
+    });
+
+
+    const formSettings = [
+        {
+            fullWidth: true,
+            required: true,
+            name: "name",
+            id: "form-name",
+            label: "Name",
+            variant: "outlined",
+            type: "text",
+            autoComplete: "name"
+        },
+        {
+            fullWidth: true,
+            required: true,
+            name: "date",
+            id: "form-date",
+            label: "Date",
+            variant: "outlined",
+            type: "date",
+            autoComplete: "date",
+            min: today,
+        },
+        {
+            fullWidth: true,
+            required: true,
+            name: "time",
+            id: "form-time",
+            label: "Time",
+            variant: "outlined",
+            type: "time",
+            autoComplete: "time",
+            min: currentTime,
+        },
+        {
+            fullWidth: true,
+            required: true,
+            name: "phone",
+            id: "form-phone",
+            label: "Phone Number",
+            variant: "outlined",
+            type: "tel",
+            autoComplete: "tel"
+        },
+        {
+            fullWidth: true,
+            required: true,
+            name: "people",
+            id: "form-people",
+            label: "Number of People",
+            variant: "outlined",
+            type: "number",
+            autoComplete: "number",
+            min: 1,
+            max: 15,
+        },
+    ]
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
     }
+
+    const handleFormInput = (e) => {
+        const { name, date, time, phone, people, value } = e.target;
+
+        setInput({
+            ...input,
+            [name]: value,
+            [date]: value,
+            [time]: value,
+            [phone]: value,
+            [people]: value,
+        })
+    }
+
+    useEffect(() => {
+        console.log(input)
+        console.log(today)
+        console.log(currentTime)
+    }, [input])
 
     return (
         <Box className="hero">
@@ -32,7 +121,7 @@ export default function Hero() {
                         gridTemplateRows: "repeat(5, minmax(0, 1fr))",
                         background: "url('./images/bg.jpg')",
                         backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",
+                        backgroundSize: "fill",
                         backgroundPosition: "center center",
                     }}>
                     <Box className="hero-text-wrapper"
@@ -75,13 +164,13 @@ export default function Hero() {
                                             </Button>
                                         </Box>
                                         <a href="https://www.ubereats.com/store/lao-ma-spicy-%E8%80%81%E5%AA%BD%E9%BA%BB%E8%BE%A3%E7%87%99/7BL09unDTgOoPhVr8lEmVw" target="_blank" rel='noreferrer'>
-                                            <img src={ubereats} alt="ubereats" height="50px" width="50px" />
+                                            <img src="./images/icons/ubereats.png" alt="ubereats" height="50px" width="50px" />
                                         </a>
                                         <a href='https://www.yelp.com/biz/laoma-spicy-new-york-2' target="_blank" rel='noreferrer'>
-                                            <img src={yelp} alt="yelp" height="50px" width="50px" />
+                                            <img src="./images/icons/yelp.png" alt="yelp" height="50px" width="50px" />
                                         </a>
                                         <a href='https://www.instagram.com/laomaspicy/' target="_blank" rel='noreferrer'>
-                                            <img src={instagram} alt="instagram" height="50px" width="50px" />
+                                            <img src="./images/icons/instagram.png" alt="instagram" height="50px" width="50px" />
                                         </a>
                                     </Stack>
                                 </Box>
@@ -105,13 +194,34 @@ export default function Hero() {
                                 p: 1,
                             }}>
                             <CardContent sx={{ m: 1, p: 1 }}>
-                                <Box sx={{
-                                    '& > :not(style)': { m: 1, width: '25ch' },
-                                }}>
-                                    <TextField id="outlined-basic" label="Date" variant="outlined" />
-                                    <TextField id="outlined-basic" label="Time" variant="outlined" />
-                                    <TextField id="outlined-basic" label="" variant="outlined" />
-                                    <Button variant="outlined" onClick={handleBookTable}>
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& > :not(style)': { m: 1, width: '25ch' },
+                                    }}>
+                                    {
+                                        formSettings?.map(({ fullWidth, required, id, label, type, name, autoComplete, variant, max, min }, index) => (
+                                            <TextField
+                                                key={index}
+                                                fullWidth={fullWidth}
+                                                name={name}
+                                                id={id}
+                                                required={required}
+                                                label={label}
+                                                variant={variant}
+                                                autoComplete={autoComplete}
+                                                type={type}
+                                                value={input[name]}
+                                                onChange={e => handleFormInput(e)}
+                                                inputProps={{
+                                                    max: max ? max : null,
+                                                    min: min ? min : null,
+                                                }
+                                                }
+                                            />
+                                        ))
+                                    }
+                                    <Button variant="outlined" type="submit" onClick={e => handleFormSubmit(e)}>
                                         Book a Table
                                     </Button>
                                 </Box>

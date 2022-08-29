@@ -2,7 +2,7 @@ import React from 'react';
 import '../Menu.scss'
 
 import { connect } from 'react-redux'
-import { addToCart } from '../../../../../redux/Cart/cartActions'
+import { addToCart } from '../../../../redux/Cart/cartActions'
 
 const Items = ({ itemdetails, addToCart }) => {
     return (

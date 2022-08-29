@@ -1,6 +1,6 @@
 import * as actionTypes from "./cartTypes";
 import { nanoid } from "nanoid";
-import { itemdetails } from "../../components/MainPage/Main/Menu/Items/itemdetails";
+import { itemdetails } from "../../components/MainPage/Menu/Items/itemdetails";
 
 const INITIAL_STATE = {
 	itemdetails: itemdetails,

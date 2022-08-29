@@ -2,10 +2,10 @@ import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Cover from "./components/CoverPage/Cover"
 import HeaderNav from "./components/MainPage/HeaderNav/HeaderNav";
-import Home from "./components/MainPage/Main/Home/Home";
+import Home from "./components/MainPage/Home/Home";
 import Cart from "./components/MainPage/Cart/Cart";
 import Footer from "./components/MainPage/Footer/Footer";
-import Menu from "./components/MainPage/Main/Menu/Menu";
+import Menu from "./components/MainPage/Menu/Menu";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 

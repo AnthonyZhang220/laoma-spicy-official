@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavItems } from "./NavItems/NavItems";
 import { Link, Outlet } from 'react-router-dom';
-import nav_logo from "./nav_logo.png";
 import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -51,12 +50,7 @@ function HeaderNav() {
                                     }
                                 }}>
                                 <Link onClick={closeMobileMenu} className={`nav_links ${navbar ? "active" : ""}`} to={item.url}>
-                                    {
-                                        item.title === "Home"
-                                            ?
-                                            <img src={nav_logo} height="50px" width="auto" alt="nav logo" />
-                                            :
-                                            item.title.toUpperCase()}
+                                    {item.title.toUpperCase()}
                                 </Link>
                             </Box>
                         )
