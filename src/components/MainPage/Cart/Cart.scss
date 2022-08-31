@@ -2,7 +2,7 @@
 	height: 100%;
 	top: 0;
 	width: 0%;
-	z-index: 3000;
+	z-index: 2001;
 
 	.cart_title {
 		text-align: center;
@@ -55,7 +55,6 @@
 	cursor: pointer;
 	position: fixed;
 	left: 50%;
-	bottom: 5%;
+	bottom: 1%;
 	transform: translate(-50%, -50%);
-	transition: all 0.75s ease-in-out;
 }

@@ -3,22 +3,27 @@ import Box from '@mui/material/Box'
 import { Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+
+import "./Special.scss"
 
 export default function Special() {
   const specialDish = [
     {
       img: "",
-      name: "",
+      name: "MaLaTang | 麻辣烫",
       description: ""
     },
     {
       img: "",
-      name: "",
+      name: "Dry Hot Pot | 麻辣香锅",
       description: ""
     },
     {
       img: "",
-      name: "",
+      name: "Dessert | 点心",
       description: "2222222222222222222222222"
     },
   ]
@@ -47,24 +52,32 @@ export default function Special() {
           Made with authentic chinese ingredients.
         </Typography>
       </Box>
-      <Box>
-        <Grid container xs={12}>
-          {specialDish?.map(({ img, name, description }, index) => (
-            <Grid item xs={4} key={index}>
-              <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", }}>
-                <Paper elevation={0} sx={{ m: 2, width: 350, height: 450, borderRadius: "18px", boxShadow: "rgb(0 0 0 / 10%) 0px 10px 50px", }}>
-                  <img src={img} alt="name" />
-                  <Typography variant="h4">
-                    {name}
-                  </Typography>
-                  <Typography variant="body1">
-                    {description}
-                  </Typography>
-                </Paper>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
+      <Box className="special-display-container">
+        {specialDish?.map(({ img, name, description }, index) => (
+          <Card sx={{
+            width: 325,
+            height: 450,
+            borderRadius: "18px",
+            boxShadow: "rgb(0 0 0 / 10%) 0px 10px 50px",
+            textAlign: "center",
+          }} key={index}>
+            <CardMedia
+              component="img"
+              height="225"
+              image={img}
+              alt={name}
+              sx={{ border: "none" }}
+            />
+            <CardContent>
+              <Typography  variant="h5">
+                {name}
+              </Typography>
+              <Typography  variant="body1">
+                {description}
+              </Typography>
+            </CardContent>
+          </Card>
+        ))}
       </Box>
     </Box>
   )

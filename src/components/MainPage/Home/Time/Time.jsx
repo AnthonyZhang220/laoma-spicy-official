@@ -21,7 +21,6 @@ export default function Time() {
                             justifyContent="center"
                             alignItems="center"
                             direction="row"
-                            xs={12}
                             key={index}
                             sx={{ p: 1 }}>
                             <Grid item xs={6}>

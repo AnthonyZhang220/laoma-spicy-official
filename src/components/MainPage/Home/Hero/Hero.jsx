@@ -14,14 +14,26 @@ import Grid from '@mui/material/Grid';
 
 export default function Hero() {
 
-    const date = new Date();
-    const today = date.toISOString().split('T')[0]
-    const currentTime = date.getHours() + ":" + date.getMinutes()
+    function getDate() {
+        const date = new Date();
+        const today = date.toISOString().split('T')[0];
+
+        return today;
+    }
+
+    function getTime() {
+        const date = new Date();
+        const hour = ('00' + date.getHours()).slice(-2);
+        const minute = ('00' + date.getMinutes()).slice(-2);
+        const currentTime = hour + ":" + minute;
+
+        return currentTime;
+    }
 
     const [input, setInput] = useState({
         name: "",
-        date: today,
-        time: currentTime,
+        date: getDate(),
+        time: getTime(),
         phone: "",
         people: 1,
     });
@@ -43,7 +55,7 @@ export default function Hero() {
             variant: "outlined",
             type: "date",
             autoComplete: "date",
-            min: today,
+            min: getDate(),
         },
         {
             name: "time",
@@ -52,7 +64,7 @@ export default function Hero() {
             variant: "outlined",
             type: "time",
             autoComplete: "time",
-            min: currentTime,
+            min: getTime(),
         },
         {
             name: "phone",
@@ -90,7 +102,6 @@ export default function Hero() {
             [people]: value,
         })
     }
-
 
     return (
         <Box className="hero">
@@ -145,7 +156,7 @@ export default function Hero() {
                                 <Box className='hero-delivery-icon'>
                                     <Stack spacing={2} direction="row">
                                         <Box className="hero-order-button">
-                                            <Button variant='contained' sx={{ fontSize: 20, borderRadius: "8px" }}>
+                                            <Button variant='contained' sx={{ fontSize: 20, borderRadius: "8px" }} component="a" href="https://qmenu.us/#/lao-ma-spicy-new-york">
                                                 Order Now
                                             </Button>
                                         </Box>
@@ -175,9 +186,8 @@ export default function Hero() {
                             paddingLeft: "20px",
                             paddingRight: "20px",
                             display: "flex",
-                            flexDirection: "column",
                             justifyContent: "center",
-                            alignItems: "center",
+                            alignItems: "center"
                         }}>
                         <Card elevation={0}
                             sx={{
@@ -186,45 +196,43 @@ export default function Hero() {
                                 m: 1,
                                 p: 1,
                             }}>
-                            <CardContent>
-                                <Grid
-                                    component="form"
-                                    container
-                                    sx={{
-                                        '& > :not(style)': { m: 1, width: '25ch' },
-                                    }}>
-                                    {
-                                        formSettings?.map(({ id, label, type, name, autoComplete, variant, max, min }, index) => (
-                                            <Grid item xs={12} md={3} textAlign="center" >
-                                                <TextField
-                                                    key={index}
-                                                    fullWidth={true}
-                                                    name={name}
-                                                    id={id}
-                                                    required
-                                                    label={label}
-                                                    variant={variant}
-                                                    autoComplete={autoComplete}
-                                                    type={type}
-                                                    size="small"
-                                                    value={input[name]}
-                                                    onChange={e => handleFormInput(e)}
-                                                    inputProps={{
-                                                        max: max ? max : null,
-                                                        min: min ? min : null,
-                                                    }
-                                                    }
-                                                />
-                                            </Grid>
-                                        ))
-                                    }
-                                    <Grid item xs={12} md={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "start" }}>
-                                        <Button variant="outlined" type="submit" onClick={e => handleFormSubmit(e)}>
-                                            Book a Table
-                                        </Button>
-                                    </Grid>
+                            <Grid
+                                component="form"
+                                container
+                                sx={{
+                                    '& > :not(style)': { p: 2, width: '25ch' },
+                                }}>
+                                {
+                                    formSettings?.map(({ id, label, type, name, autoComplete, variant, max, min }, index) => (
+                                        <Grid item xs={12} md={4} textAlign="center" key={index} >
+                                            <TextField
+                                                key={index}
+                                                fullWidth={true}
+                                                name={name}
+                                                id={id}
+                                                required
+                                                label={label}
+                                                variant={variant}
+                                                autoComplete={autoComplete}
+                                                type={type}
+                                                size="small"
+                                                value={input[name]}
+                                                onChange={e => handleFormInput(e)}
+                                                inputProps={{
+                                                    max: max ? max : null,
+                                                    min: min ? min : null,
+                                                }
+                                                }
+                                            />
+                                        </Grid>
+                                    ))
+                                }
+                                <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "start" }}>
+                                    <Button variant="outlined" type="submit" onClick={e => handleFormSubmit(e)}>
+                                        Book a Table
+                                    </Button>
                                 </Grid>
-                            </CardContent>
+                            </Grid>
                         </Card>
                     </Box>
                 </Box>

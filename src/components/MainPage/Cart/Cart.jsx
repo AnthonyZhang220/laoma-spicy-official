@@ -144,7 +144,9 @@ const Cart = ({ cart, removeFromCart }) => {
                                     width: "5rem",
                                     height: "0.25rem",
                                     backgroundColor: "#000000",
-                                    margin: "0 auto"
+                                    margin: "0 auto",
+                                    marginTop: "1rem",
+                                    marginBottom: "1rem",
                                 }}></Box>
                                 <Box className="cart_section">
                                     <List>
@@ -152,8 +154,8 @@ const Cart = ({ cart, removeFromCart }) => {
                                             const { uniqueID, title, price, description } = cart_items;
 
                                             return (
-                                                <React.Fragment>
-                                                    <ListItem key={index} className="cart_item" disablePadding
+                                                <React.Fragment key={index}>
+                                                    <ListItem className="cart_item" disablePadding
                                                         secondaryAction={
                                                             <IconButton edge="end" aria-label="delete" onClick={() => removeFromCart(uniqueID)}>
                                                                 <DeleteIcon />
@@ -164,7 +166,7 @@ const Cart = ({ cart, removeFromCart }) => {
                                                         </ListItemButton>
                                                     </ListItem>
                                                     <Box className="cart_header">
-                                                        <Typography variant="body1" className="cart_item_price">{price}</Typography>
+                                                        <Typography variant="body1" className="cart_item_price">${price}</Typography>
                                                     </Box>
                                                 </React.Fragment>
 
@@ -173,18 +175,16 @@ const Cart = ({ cart, removeFromCart }) => {
                                     </List>
                                 </Box>
                                 <Box className="cart_detail">
-                                    <Box className="total_sum">
-                                        <Stack spacing={2}>
-                                            <Typography variant="h5">
-                                                Total before Tax: {cartSum.toFixed(2)}
-                                            </Typography>
-                                            <Typography variant="h5">
-                                                Tax Estimate(NY 8.875%): {(cartSum * tax).toFixed(2)}
-                                            </Typography>
-                                            <Typography variant="h5">
-                                                *Estimated Total: {(cartSum + cartSum * tax).toFixed(2)}
-                                            </Typography>
-                                        </Stack>
+                                    <Box className="total_sum" textAlign="start">
+                                        <Typography variant="h6">
+                                            Subtotal: ${cartSum.toFixed(2)}
+                                        </Typography>
+                                        <Typography variant="h6">
+                                            Tax(8.875%): ${(cartSum * tax).toFixed(2)}
+                                        </Typography>
+                                        <Typography variant="h6">
+                                            *Total: ${(cartSum + cartSum * tax).toFixed(2)}
+                                        </Typography>
                                         <Button className="cart_placeorder" variant="contained" onClick={() => console.log('Order Placed!')}>
                                             Place Order
                                         </Button>
