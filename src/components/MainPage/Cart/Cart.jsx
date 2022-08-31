@@ -9,6 +9,15 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Stack from '@mui/material/Stack';
 
 import './Cart.scss';
 
@@ -126,50 +135,87 @@ const Cart = ({ cart, removeFromCart }) => {
                             },
                         }}
                     >
-                        <Box sx={{ position: 'relative', display: 'flex', flexDirection: 'column' }}>
-                            <h2 className="cart_title">
-                                Your Order
-                            </h2>
-                            <div className="cart_title_underline"></div>
-                            <div className="cart_section">
-                                {cart.map((cart_items, index) => {
-                                    const { uniqueID, title, price } = cart_items;
+                        {cartCount > 0 ?
+                            <Box sx={{ position: 'relative', display: 'flex', flexDirection: 'column' }}>
+                                <Typography variant="h4" className="cart_title">
+                                    Your Order
+                                </Typography>
+                                <Box className="cart_title_underline" sx={{
+                                    width: "5rem",
+                                    height: "0.25rem",
+                                    backgroundColor: "#000000",
+                                    margin: "0 auto"
+                                }}></Box>
+                                <Box className="cart_section">
+                                    <List>
+                                        {cart.map((cart_items, index) => {
+                                            const { uniqueID, title, price, description } = cart_items;
 
-                                    return (
-                                        <div key={index} className="cart_item">
-                                            <div className="cart_header">
-                                                <h4>{title}</h4>
-                                                <h4 className="cart_item_price">${price}</h4>
-                                                <button onClick={() => removeFromCart(uniqueID)} className="delete"><i className='fas fa-trash-alt'></i></button>
-                                            </div>
-                                        </div>
+                                            return (
+                                                <React.Fragment>
+                                                    <ListItem key={index} className="cart_item" disablePadding
+                                                        secondaryAction={
+                                                            <IconButton edge="end" aria-label="delete" onClick={() => removeFromCart(uniqueID)}>
+                                                                <DeleteIcon />
+                                                            </IconButton>
+                                                        }>
+                                                        <ListItemButton component="a" href="#simple-list">
+                                                            <ListItemText primary={title} secondary={description} />
+                                                        </ListItemButton>
+                                                    </ListItem>
+                                                    <Box className="cart_header">
+                                                        <Typography variant="body1" className="cart_item_price">{price}</Typography>
+                                                    </Box>
+                                                </React.Fragment>
 
-                                    )
-                                })}
-                            </div>
-                            <div className="cart_detail">
-                                <div className="total_sum">Total before Tax:</div><div>${(cartSum).toFixed(2)}</div>
-                                <div>Tax Estimate(NY 8.875%):</div>
-                                <div>${(cartSum * tax).toFixed(2)}</div>
-                                <div>*Estimated Total:</div>
-                                <div>${(cartSum + cartSum * tax).toFixed(2)}</div>
+                                            )
+                                        })}
+                                    </List>
+                                </Box>
+                                <Box className="cart_detail">
+                                    <Box className="total_sum">
+                                        <Stack spacing={2}>
+                                            <Typography variant="h5">
+                                                Total before Tax: {cartSum.toFixed(2)}
+                                            </Typography>
+                                            <Typography variant="h5">
+                                                Tax Estimate(NY 8.875%): {(cartSum * tax).toFixed(2)}
+                                            </Typography>
+                                            <Typography variant="h5">
+                                                *Estimated Total: {(cartSum + cartSum * tax).toFixed(2)}
+                                            </Typography>
+                                        </Stack>
+                                        <Button className="cart_placeorder" variant="contained" onClick={() => console.log('Order Placed!')}>
+                                            Place Order
+                                        </Button>
+                                    </Box>
+                                </Box>
+                            </Box> :
+                            <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}>
+                                <Box sx={{ textAlign: "center" }}>
+                                    <ShoppingCartIcon sx={{ fontSize: 100 }} />
+                                    <Typography variant="h5">
+                                        No item in cart.
+                                    </Typography>
+                                    <Typography variant="h5">
+                                        Add items from Menu.
+                                    </Typography>
 
-                                <button className="cart_placeorder" onClick={() => console.log('Order Placed!')}>
-                                    Place Order
-                                </button>
-                            </div>
-                        </Box>
+                                </Box>
+                            </Box>
+                        }
                     </StyledBox>
                 </SwipeableDrawer>
             </Root>
             <Box className="cart_icon">
-                <IconButton aria-label="shopping cart" size='large' edge="start" onClick={toggleDrawer(true)}>
-                    <Badge badgeContent={4} color="primary">
-                        <ShoppingCartIcon sx={{ fontSize: 35 }} />
-                    </Badge>
-                </IconButton>
+                {
+                    cartCount > 0 ?
+                        <Button variant="contained" aria-label="shopping cart" size="large" sx={{ backgroundColor: "#000000", color: "white", borderRadius: "500px", }} className="cart_icon" onClick={toggleDrawer(true)} startIcon={<ShoppingCartIcon />}>
+                            View Cart • {cartCount}
+                        </Button> : null
+                }
             </Box>
-        </React.Fragment>
+        </React.Fragment >
     )
 }
 

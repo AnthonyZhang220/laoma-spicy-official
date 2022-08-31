@@ -3,18 +3,12 @@
 Variables
 ===============
 */
-
-:root {
-	--clr-white: #fff;
-	--clr-gold: #c59d5f;
-
-	--clr-black: #222;
-	--transition: all 0.3s linear;
-	--spacing: 0.1rem;
-	--radius: 0.25rem;
-	--light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-	--dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-	--fixed-width: 620px;
+html {
+	scroll-behavior: smooth;
+	-webkit-font-smoothing: antialiased;
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 /*
@@ -23,39 +17,10 @@ Global Styles
 ===============
 */
 
-*,
-::after,
-::before {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
-html {
-	scrollbar-width: auto;
-	scrollbar-color: #8c8c8c #ffffff;
-	/* Chrome, Edge, and Safari */
-	*::-webkit-scrollbar {
-		width: 12px;
-	}
-
-	*::-webkit-scrollbar-track {
-		background: #ffffff;
-	}
-
-	*::-webkit-scrollbar-thumb {
-		background-color: #8c8c8c;
-		border-radius: 10px;
-		border: 3px solid #ffffff;
-	}
-}
-
 body {
-	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	position: relative;
 	background: #f2f3f4;
 	font-family: "Open Sans", sans-serif;
 	/* background-image:url('./bg.png'); */
@@ -63,4 +28,22 @@ body {
 	/* background-size: fill; */
 	/* display:flex; */
 	/* overflow-y: hidden; */
+	&::-webkit-scrollbar-track {
+		background-color: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #d6dee1;
+		border-radius: 20px;
+		border: 2px solid transparent;
+		background-clip: content-box;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: #a8bbbf;
+	}
+
+	&::-webkit-scrollbar {
+		width: 14px;
+	}
 }

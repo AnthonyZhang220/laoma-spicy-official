@@ -6,7 +6,7 @@ export const itemdetails = [
 		price: 14.99,
 		images: "./images/items/beef.png",
 		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aperiam illo ut odio temporibus magnam ipsam reiciendis non inventore, harum ullam quod soluta numquam fugiat libero mollitia rem voluptatum? Autem.",
+			"Lorem ipsum dolor sit ame",
 	},
 	{
 		id: 2,
@@ -15,7 +15,7 @@ export const itemdetails = [
 		price: 14.99,
 		images: "./images/items/lamb.png",
 		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aperiam illo ut odio temporibus magnam ipsam reiciendis non inventore, harum ullam quod soluta numquam fugiat libero mollitia rem voluptatum? Autem.",
+			"Lorem ipsum dolor sit amet c",
 	},
 	{
 		id: 3,
@@ -24,7 +24,7 @@ export const itemdetails = [
 		price: 14.99,
 		images: "./images/items/shrimp ball.png",
 		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aperiam illo ut odio temporibus magnam ipsam reiciendis non inventore, harum ullam quod soluta numquam fugiat libero mollitia rem voluptatum? Autem.",
+			"Lorem ipsum dolor sit amet consect",
 	},
 	{
 		id: 4,
@@ -33,6 +33,6 @@ export const itemdetails = [
 		price: 14.99,
 		images: "./images/items/shrimp ball.png",
 		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur aperiam illo ut odio temporibus magnam ipsam reiciendis non inventore, harum ullam quod soluta numquam fugiat libero mollitia rem voluptatum? Autem.",
+			"Lorem ipsum dolor sit amet con",
 	},
 ];

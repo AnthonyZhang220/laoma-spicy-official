@@ -8,6 +8,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
 
 
 
@@ -28,8 +29,6 @@ export default function Hero() {
 
     const formSettings = [
         {
-            fullWidth: true,
-            required: true,
             name: "name",
             id: "form-name",
             label: "Name",
@@ -38,8 +37,6 @@ export default function Hero() {
             autoComplete: "name"
         },
         {
-            fullWidth: true,
-            required: true,
             name: "date",
             id: "form-date",
             label: "Date",
@@ -49,8 +46,6 @@ export default function Hero() {
             min: today,
         },
         {
-            fullWidth: true,
-            required: true,
             name: "time",
             id: "form-time",
             label: "Time",
@@ -60,8 +55,6 @@ export default function Hero() {
             min: currentTime,
         },
         {
-            fullWidth: true,
-            required: true,
             name: "phone",
             id: "form-phone",
             label: "Phone Number",
@@ -70,8 +63,6 @@ export default function Hero() {
             autoComplete: "tel"
         },
         {
-            fullWidth: true,
-            required: true,
             name: "people",
             id: "form-people",
             label: "Number of People",
@@ -100,11 +91,6 @@ export default function Hero() {
         })
     }
 
-    useEffect(() => {
-        console.log(input)
-        console.log(today)
-        console.log(currentTime)
-    }, [input])
 
     return (
         <Box className="hero">
@@ -172,6 +158,12 @@ export default function Hero() {
                                         <a href='https://www.instagram.com/laomaspicy/' target="_blank" rel='noreferrer'>
                                             <img src="./images/icons/instagram.png" alt="instagram" height="50px" width="50px" />
                                         </a>
+                                        <a href='https://www.facebook.com/laomaspicy/' target="_blank" rel='noreferrer'>
+                                            <img src="./images/icons/facebook.png" alt="facebook" height="50px" width="50px" />
+                                        </a>
+                                        <a href='https://www.facebook.com/laomaspicy/' target="_blank" rel='noreferrer'>
+                                            <img src="./images/icons/hungrypanda.webp" alt="hungrypanda" height="50px" width="50px" style={{ borderRadius: "10px" }} />
+                                        </a>
                                     </Stack>
                                 </Box>
                             </Box>
@@ -183,48 +175,55 @@ export default function Hero() {
                             paddingLeft: "20px",
                             paddingRight: "20px",
                             display: "flex",
+                            flexDirection: "column",
                             justifyContent: "center",
-                            alignItems: "center"
+                            alignItems: "center",
                         }}>
-                        <Card elevation={2}
+                        <Card elevation={0}
                             sx={{
                                 borderRadius: "18px",
                                 boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
                                 m: 1,
                                 p: 1,
                             }}>
-                            <CardContent sx={{ m: 1, p: 1 }}>
-                                <Box
+                            <CardContent>
+                                <Grid
                                     component="form"
+                                    container
                                     sx={{
                                         '& > :not(style)': { m: 1, width: '25ch' },
                                     }}>
                                     {
-                                        formSettings?.map(({ fullWidth, required, id, label, type, name, autoComplete, variant, max, min }, index) => (
-                                            <TextField
-                                                key={index}
-                                                fullWidth={fullWidth}
-                                                name={name}
-                                                id={id}
-                                                required={required}
-                                                label={label}
-                                                variant={variant}
-                                                autoComplete={autoComplete}
-                                                type={type}
-                                                value={input[name]}
-                                                onChange={e => handleFormInput(e)}
-                                                inputProps={{
-                                                    max: max ? max : null,
-                                                    min: min ? min : null,
-                                                }
-                                                }
-                                            />
+                                        formSettings?.map(({ id, label, type, name, autoComplete, variant, max, min }, index) => (
+                                            <Grid item xs={12} md={3} textAlign="center" >
+                                                <TextField
+                                                    key={index}
+                                                    fullWidth={true}
+                                                    name={name}
+                                                    id={id}
+                                                    required
+                                                    label={label}
+                                                    variant={variant}
+                                                    autoComplete={autoComplete}
+                                                    type={type}
+                                                    size="small"
+                                                    value={input[name]}
+                                                    onChange={e => handleFormInput(e)}
+                                                    inputProps={{
+                                                        max: max ? max : null,
+                                                        min: min ? min : null,
+                                                    }
+                                                    }
+                                                />
+                                            </Grid>
                                         ))
                                     }
-                                    <Button variant="outlined" type="submit" onClick={e => handleFormSubmit(e)}>
-                                        Book a Table
-                                    </Button>
-                                </Box>
+                                    <Grid item xs={12} md={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "start" }}>
+                                        <Button variant="outlined" type="submit" onClick={e => handleFormSubmit(e)}>
+                                            Book a Table
+                                        </Button>
+                                    </Grid>
+                                </Grid>
                             </CardContent>
                         </Card>
                     </Box>

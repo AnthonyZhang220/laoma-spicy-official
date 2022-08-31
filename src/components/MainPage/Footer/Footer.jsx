@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Footer.scss';
 
 export default function Footer() {
 
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (window.scrollY <= 30) {
+      setVisible(false);
+    } else {
+      setVisible(true);
+    }
+
+    console.log(window.scrollY)
+  }, [])
+
   return (
-    <div className="footer">
+    <div className="footer" style={{ opacity: visible ? 1 : 0, transition: "0.1s" }}>
       <div className="text_footer">
         <a className="tel" href='tel:+12127771887'>(212) 777-1887</a>
         <a className="address"

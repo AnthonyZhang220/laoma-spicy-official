@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { itemdetails } from './Items/itemdetails.js';
 import Categories from "./Categories/Categories";
 import Items from "./Items/Items.jsx";
-import './Menu.scss';
+import Box from '@mui/material/Box';
 
+import './Menu.scss';
 
 const allCategories = ['all', ...new Set(itemdetails.map((item) => item.category))];
 
@@ -21,12 +22,12 @@ function Menu() {
     };
 
     return (
-        <main>
-            <section className="menu section">
+        <section className="menu">
+            <Box className="menu-container">
                 <Categories categories={categories} filterItems={filterItems} />
                 <Items itemdetails={menuItems} />
-            </section>
-        </main>
+            </Box>
+        </section>
     );
 }
 

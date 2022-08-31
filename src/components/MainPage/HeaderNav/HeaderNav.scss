@@ -57,8 +57,9 @@
 
 @media screen and (max-width: 900px) {
 	.NavItems {
-		position: sticky;
+		position: fixed;
 		top: 0;
+		background-color: transparent;
 
 		.menu_icon {
 			display: block;
