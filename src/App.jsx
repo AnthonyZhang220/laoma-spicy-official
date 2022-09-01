@@ -34,7 +34,7 @@ const theme = createTheme({
             fontWeight: 500,
         },
         h5: {
-            fontSize: "1.75rem",
+            fontSize: "1.5rem",
             fontWeight: 500,
         },
         h6: {
@@ -47,6 +47,7 @@ const theme = createTheme({
 const AppLayout = () => (
     <>
         <HeaderNav />
+        <Outlet />
         <Cart />
         <Footer />
     </>

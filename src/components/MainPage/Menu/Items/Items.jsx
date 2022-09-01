@@ -54,7 +54,11 @@ const Items = ({ itemdetails, addToCart }) => {
     }
 
     return (
-        <Box className="section_center" component="ul">
+        <Box className="section_center" component="ul" sx={{
+            m: 1, p: 1, maxWidth: "1400px",
+            margin: "0 auto",
+            pb: "100px"
+        }}>
             {itemdetails.map((menuItem, index) => {
                 const { id, title, images, description, price, category } = menuItem;
 
@@ -64,9 +68,11 @@ const Items = ({ itemdetails, addToCart }) => {
                         height: images === "" ? 150 : 450,
                         transition: "all 0.5s ease-in-out",
                         position: "relative",
+                        justifyItems: "center",
+                        alignItems: "center",
                         "&:hover": {
                             boxShadow: "rgb(0 0 0 / 10%) 0px 10px 50px",
-                            transition: "all 0.5s ease-in-out"
+                            transition: "all 0.2s ease-in-out"
                         }
                     }} key={id} component="li">
                         {images === "" ? null :
@@ -79,14 +85,14 @@ const Items = ({ itemdetails, addToCart }) => {
                                     transition: "all 0.5s ease-in-out",
                                     "&:hover": {
                                         transform: "scale(1.05)",
-                                        transition: "all 0.5s ease-in-out"
+                                        transition: "all 0.2s ease-in-out"
                                     }
                                 }}
                             />
                         }
                         <Box sx={{ position: "absolute", right: 0, top: 0 }}>
                             <IconButton onClick={() => addToCart(id)} >
-                                <AddCircleIcon sx={{ fontSize: 40, color:"#121212" }} />
+                                <AddCircleIcon sx={{ fontSize: 40, color: "#121212" }} />
                             </IconButton>
                         </Box>
                         <CardContent>

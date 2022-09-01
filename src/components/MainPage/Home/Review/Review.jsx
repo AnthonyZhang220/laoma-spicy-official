@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
-import reviewdata from './reviewdata';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -36,9 +33,9 @@ export default function Review() {
     }, [number]);
 
     return (
-        <Box className="review" sx={{ position: "relative", display: "flex", flexDirection: "column", justifyContent: 'center', alignItem: "center", pt: "100px", pb: "100px" }} >
-            <Box className="review-flex-container" sx={{ margin: "0 auto", maxWidth: "1400px" }}>
-                <Card sx={{ m: 2, maxWidth: 400, maxHeight: 700, borderRadius: "18px", boxShadow: "rgb(0 0 0 / 10%) 0px 10px 50px", }}>
+        <Box className="review" sx={{ display: "flex", justifyContent: 'center', alignItem: "center", backgroundColor: "#f2f3f4" }} >
+            <Box className="review-flex-container">
+                <Card sx={{ maxWidth: 400, maxHeight: 700, borderRadius: "18px", boxShadow: "rgb(0 0 0 / 10%) 0px 10px 50px", }}>
                     <CardHeader
                         avatar={
                             <Avatar alt={data.author_title ? data.author_title : "Jessica Wong"} src={data.author_image ? data.author_image : "https://lh3.googleusercontent.com/a-/AFdZucraph7YVSHQq8cFcKWWFWn5ugrtUCL-PRTi8cfk=w36-h36-p-c0x00000000-rp-mo-ba4-br100"} aria-label="author" />
@@ -62,7 +59,7 @@ export default function Review() {
                             />
                             <Box sx={{ ml: 2 }}>{data.review_rating ? `${data.review_rating / 5}` : `5 / 5`}</Box>
                         </Stack>
-                        <Typography variant="body1" color="text.secondary">
+                        <Typography variant="body2" color="text.secondary">
                             {data.review_text ? data.review_text : "I have already ordered takeout here so many times and I love this place so much. The chili oil wontons are honestly so marvelous, I love how it’s the right amount of spicy and garlicky. The beef spicy stew is also so good and yummy, and I always appreciate how they give such a generous amount of beef and noodles. There is also the perfect amount of heat and spice in every bite that makes me crave this every week."}
                         </Typography>
                     </CardContent>
