@@ -12,6 +12,8 @@ import { Button, CardActionArea, CardActions, IconButton } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Rating from '@mui/material/Rating';
 
+import { useMediaQuery } from "@mui/material";
+
 
 import './Items.scss'
 
@@ -36,6 +38,9 @@ function ChiliIcon() {
 // });
 
 const Items = ({ itemdetails, addToCart }) => {
+
+    const isTablet = useMediaQuery('(max-width:1000px)');
+    const isMobile = useMediaQuery('(max-width:600px)');
 
     const [value, setValue] = useState(2);
     const [hover, setHover] = useState(-1);
