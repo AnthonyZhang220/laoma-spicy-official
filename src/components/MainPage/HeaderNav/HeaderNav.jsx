@@ -36,9 +36,6 @@ function HeaderNav() {
     const handleClick = () => setClick(!click)
     const closeMobileMenu = () => setClick(false);
 
-    const isMobile = useMediaQuery('(min-width:900px)');
-
-
     const changeBackground = () => {
         if (window.scrollY >= 50) {
             setNavbar(true);

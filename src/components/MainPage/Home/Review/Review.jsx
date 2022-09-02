@@ -40,6 +40,16 @@ export default function Review() {
                         avatar={
                             <Avatar alt={data.author_title ? data.author_title : "Jessica Wong"} src={data.author_image ? data.author_image : "https://lh3.googleusercontent.com/a-/AFdZucraph7YVSHQq8cFcKWWFWn5ugrtUCL-PRTi8cfk=w36-h36-p-c0x00000000-rp-mo-ba4-br100"} aria-label="author" />
                         }
+                        action={
+                            <React.Fragment>
+                                <IconButton aria-label="add to favorites">
+                                    <FavoriteIcon />
+                                </IconButton>
+                                <IconButton aria-label="share">
+                                    <ShareIcon />
+                                </IconButton>
+                            </React.Fragment>
+                        }
                         title={data.author_title ? data.author_title : "Jessica Wong"}
                         subheader={data.review_datetime_utc || null}
                     />
@@ -63,15 +73,45 @@ export default function Review() {
                             {data.review_text ? data.review_text : "I have already ordered takeout here so many times and I love this place so much. The chili oil wontons are honestly so marvelous, I love how it’s the right amount of spicy and garlicky. The beef spicy stew is also so good and yummy, and I always appreciate how they give such a generous amount of beef and noodles. There is also the perfect amount of heat and spice in every bite that makes me crave this every week."}
                         </Typography>
                     </CardContent>
-                    <CardActions disableSpacing>
-                        <IconButton aria-label="add to favorites">
-                            <FavoriteIcon />
-                        </IconButton>
-                        <IconButton aria-label="share">
-                            <ShareIcon />
-                        </IconButton>
-                    </CardActions>
                 </Card>
+                <Box sx={{ display: "flex", m: 1, p: 1, justifyContent: "center", alignItems: "center", }}>
+                    <Box
+                        component="a"
+                        href='https://www.instagram.com/laomaspicy/' target="_blank" rel='noreferrer'
+                        className="skill-icon-item" sx={{
+                            backgroundColor: "#ffffff",
+                            borderRadius: "50%",
+                            boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 50px;',
+                            m: 1,
+                            p: 2,
+                        }}>
+                        <img src="./images/icons/instagram.png" style={{ display: "block" }} alt="instagram" height="50px" width="50px" />
+                    </Box>
+                    <Box textAlign="center"
+                        component="a"
+                        href='https://www.facebook.com/laomaspicy/' target="_blank" rel='noreferrer'
+                        className="skill-icon-item" sx={{
+                            backgroundColor: "#ffffff",
+                            borderRadius: "50%",
+                            boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 50px;',
+                            m: 1,
+                            p: 2,
+                        }}>
+                        <img src="./images/icons/facebook.png" alt="facebook" height="50px" width="50px" style={{ display: "block" }} />
+                    </Box>
+                    <Box
+                        component="a"
+                        href='https://www.yelp.com/biz/laoma-spicy-new-york-2' target="_blank" rel='noreferrer'
+                        className="skill-icon-item" sx={{
+                            backgroundColor: "#ffffff",
+                            borderRadius: "50%",
+                            boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 50px;',
+                            m: 1,
+                            p: 2,
+                        }}>
+                        <img src="./images/icons/yelp.png" alt="yelp" height="50px" width="50px" style={{ display: "block" }} />
+                    </Box>
+                </Box>
             </Box>
         </Box>
     )

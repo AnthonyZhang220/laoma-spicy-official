@@ -61,7 +61,7 @@ export default function Hero() {
                                 <Box className='hero-delivery-icon'>
                                     <Stack spacing={2} direction="row">
                                         <Box className="hero-order-button">
-                                            <Button variant='contained' sx={{ fontSize: 20, borderRadius: "8px" }} component="a" href="https://qmenu.us/#/lao-ma-spicy-new-york">
+                                            <Button variant='contained' sx={{ fontSize: 20, borderRadius: "500px", backgroundColor: "#121212", color:"#ffffff" }} component="a" href="https://qmenu.us/#/lao-ma-spicy-new-york">
                                                 Order Now
                                             </Button>
                                         </Box>
