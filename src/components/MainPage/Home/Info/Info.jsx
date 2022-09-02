@@ -8,15 +8,15 @@ import Review from '../Review/Review'
 
 export default function Info() {
     return (
-        <Grid className="info" container sx={{ pt: "100px", pb: "100px", backgroundColor: "#f2f3f4", gap: "2rem 2rem", display: "flex", justifyContent: 'center', alignItem: "center", maxWidth: "1400px", margin: "0 auto",}}>
-            {/* <Grid className="info-grid-container" item sx={{
-                display: "flex", justifyContent: 'center', alignItem: "center", gap: "2rem 4rem", margin: "0 auto", maxWidth: "1400px"
-            }}> */}
-            <Grid item sx={{ m: 1, p: 1 }} className="review-grid-item" component={Review}>
-            </Grid >
-            <Grid item sx={{ m: 1, p: 1, display: "flex", flexDirection: "column" }} className="map-grid-item" component={Map}>
+        <Box className="info" sx={{ pt: "100px", pb: "100px", backgroundColor: "#f2f3f4" }}>
+            <Grid className="info-grid-container" container sx={{
+                gap: "2rem 1rem", display: "flex", justifyContent: 'center', alignItem: "center", maxWidth: "1400px", margin: "0 auto",
+            }}>
+                <Grid item className="review-grid-item" component={Review}>
+                </Grid >
+                <Grid item className="map-grid-item" component={Map}>
+                </Grid>
             </Grid>
-        </Grid>
-        // </Grid >
+        </Box >
     )
 }

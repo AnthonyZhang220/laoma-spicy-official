@@ -6,10 +6,15 @@ import Paper from '@mui/material/Paper'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import { useMediaQuery } from "@mui/material";
 
 import "./Special.scss"
 
 export default function Special() {
+
+  const isTablet = useMediaQuery('(max-width:1000px)');
+  const isMobile = useMediaQuery('(max-width:600px)');
+
   const specialDish = [
     {
       img: "./images/items/beef.png",
@@ -45,18 +50,18 @@ export default function Special() {
         m: 2,
         p: 2,
       }}>
-        <Typography variant="h2">
+        <Typography variant="h2" textAlign="center" letterSpacing={2}>
           Our Special
         </Typography>
-        <Typography variant="h5">
+        <Typography variant="h5" textAlign="center">
           Made with authentic chinese ingredients.
         </Typography>
       </Box>
       <Box className="special-display-container" sx={{ mt: 5 }}>
         {specialDish?.map(({ img, name, description }, index) => (
           <Paper sx={{
-            width: 325,
-            height: 500,
+            width: isMobile ? 275 : 325,
+            height: isMobile ? 475 : 500,
             borderRadius: "18px",
             boxShadow: "rgb(0 0 0 / 10%) 0px 10px 50px",
             textAlign: "center",
@@ -68,7 +73,7 @@ export default function Special() {
             }}>
               <CardMedia
                 component="img"
-                height="350"
+                height={isMobile ? "300" : "350"}
                 image={img}
                 alt={name}
                 sx={{ borderRadius: "50%", objectFit: "cover" }}

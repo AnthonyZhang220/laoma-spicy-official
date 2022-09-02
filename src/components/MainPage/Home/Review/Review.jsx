@@ -17,6 +17,7 @@ import { getReviewData } from '../../../../api/googleReview';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import { Box } from '@mui/material';
+import { useMediaQuery } from "@mui/material";
 
 import './Review.scss';
 
@@ -24,6 +25,8 @@ import './Review.scss';
 export default function Review() {
     const [data, setData] = useState({});
     const [number, setNumber] = useState(1);
+    const isTablet = useMediaQuery('(max-width:1000px)');
+    const isMobile = useMediaQuery('(max-width:600px)');
 
     useEffect(() => {
         const reviewData = async () => {
@@ -33,9 +36,9 @@ export default function Review() {
     }, [number]);
 
     return (
-        <Box className="review" sx={{ display: "flex", justifyContent: 'center', alignItem: "center", backgroundColor: "#f2f3f4" }} >
+        <Box className="review" sx={{ display: "flex", justifyContent: 'center', alignItem: "center", backgroundColor: "#f2f3f4", m: 1, p: 1 }} >
             <Box className="review-flex-container">
-                <Card sx={{ maxWidth: 400, maxHeight: 700, borderRadius: "18px", boxShadow: "rgb(0 0 0 / 10%) 0px 10px 50px", }}>
+                <Card sx={{ maxWidth: isMobile ? 350 : 400, maxHeight: isMobile ? 650 : 700, borderRadius: "18px", boxShadow: "rgb(0 0 0 / 10%) 0px 10px 50px", }}>
                     <CardHeader
                         avatar={
                             <Avatar alt={data.author_title ? data.author_title : "Jessica Wong"} src={data.author_image ? data.author_image : "https://lh3.googleusercontent.com/a-/AFdZucraph7YVSHQq8cFcKWWFWn5ugrtUCL-PRTi8cfk=w36-h36-p-c0x00000000-rp-mo-ba4-br100"} aria-label="author" />

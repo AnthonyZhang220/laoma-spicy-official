@@ -7,42 +7,9 @@ import Cart from "./components/MainPage/Cart/Cart";
 import Footer from "./components/MainPage/Footer/Footer";
 import Menu from "./components/MainPage/Menu/Menu";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { useMediaQuery } from "@mui/material";
 
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: "#c59d5f",
-        },
-    },
-    typography: {
-        fontFamily: ["Open Sans", "sans-serif"].join(","),
-        h1: {
-            fontSize: "5rem",
-            fontWeight: 500,
-        },
-        h2: {
-            fontSize: "4rem",
-            fontWeight: 500,
-        },
-        h3: {
-            fontSize: "3.25rem",
-            fontWeight: 500,
-        },
-        h4: {
-            fontSize: "2.25rem",
-            fontWeight: 500,
-        },
-        h5: {
-            fontSize: "1.5rem",
-            fontWeight: 500,
-        },
-        h6: {
-            fontSize: "1rem",
-            fontWeight: 500,
-        },
-    }
-});
 
 const AppLayout = () => (
     <>
@@ -54,6 +21,44 @@ const AppLayout = () => (
 )
 
 const App = () => {
+    const isTablet = useMediaQuery('(max-width:1000px)');
+    const isMobile = useMediaQuery('(max-width:600px)');
+
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: "#c59d5f",
+            },
+        },
+        typography: {
+            fontFamily: ["Open Sans", "sans-serif"].join(","),
+            h1: {
+                fontSize: isTablet ? isMobile ? "3.25rem" : "4rem" : "5rem",
+                fontWeight: 500,
+            },
+            h2: {
+                fontSize: isTablet ? isMobile ? "2.75rem" : "3.25rem" : "4rem",
+                fontWeight: 500,
+            },
+            h3: {
+                fontSize: isTablet ? isMobile ? "2.25rem" : "2.75rem" : "3.25rem",
+                fontWeight: 500,
+            },
+            h4: {
+                fontSize: isTablet ? isMobile ? "1.75rem" : "2rem" : "2.25rem",
+                fontWeight: 500,
+            },
+            h5: {
+                fontSize: isTablet ? isMobile ? "1.25rem" : "1.25rem" : "1.5rem",
+                fontWeight: 500,
+            },
+            h6: {
+                fontSize: isTablet ? isMobile ? "1.25rem" : "1.25rem" : "1.25rem",
+                fontWeight: 500,
+            },
+        }
+    });
+
     return (
         <ThemeProvider theme={theme}>
             <Router>
