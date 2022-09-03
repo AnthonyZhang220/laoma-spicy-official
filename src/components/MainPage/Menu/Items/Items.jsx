@@ -101,10 +101,10 @@ const Items = ({ itemdetails, addToCart }) => {
                             </IconButton>
                         </Box>
                         <CardContent>
-                            <Typography variant="h6">
+                            <Typography variant="h5">
                                 {title}
                             </Typography>
-                            <Typography variant="h6">
+                            <Typography variant="h5">
                                 ${price}
                             </Typography>
                             <Typography variant="body1" color="text.secondary">

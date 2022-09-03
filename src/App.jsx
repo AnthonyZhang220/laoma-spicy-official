@@ -22,7 +22,7 @@ const AppLayout = () => (
 
 const App = () => {
     const isTablet = useMediaQuery('(max-width:1000px)');
-    const isMobile = useMediaQuery('(max-width:600px)');
+    const isMobile = useMediaQuery('(max-width:650px)');
 
     const theme = createTheme({
         palette: {
@@ -49,11 +49,11 @@ const App = () => {
                 fontWeight: 500,
             },
             h5: {
-                fontSize: isTablet ? isMobile ? "1.25rem" : "1.25rem" : "1.5rem",
+                fontSize: isTablet ? isMobile ? "1.25rem" : "1.5rem" : "1.5rem",
                 fontWeight: 500,
             },
             h6: {
-                fontSize: isTablet ? isMobile ? "1.25rem" : "1.25rem" : "1.25rem",
+                fontSize: isTablet ? isMobile ? "0.75rem" : "1rem" : "1.25rem",
                 fontWeight: 500,
             },
         }

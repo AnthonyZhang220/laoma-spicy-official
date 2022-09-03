@@ -6,7 +6,7 @@ const options = {
 	url: "https://google-reviews.p.rapidapi.com/maps/reviews-v3",
 	params: { query: place_id },
 	headers: {
-		"X-RapidAPI-Key": process.env.REACT_APP_REVIEW_API_KEY,
+		"X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
 		"X-RapidAPI-Host": "google-reviews.p.rapidapi.com",
 	},
 };

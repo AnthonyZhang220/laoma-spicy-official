@@ -2,7 +2,6 @@
 	height: 100%;
 	top: 0;
 	width: 0%;
-	z-index: 2001;
 
 	.cart_title {
 		text-align: center;
@@ -51,7 +50,6 @@
 }
 
 .cart_icon {
-	cursor: pointer;
 	position: fixed;
 	left: 50%;
 	bottom: 1%;

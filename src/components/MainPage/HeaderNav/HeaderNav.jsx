@@ -90,7 +90,7 @@ function HeaderNav() {
                         <Tooltip
                             disableFocusListener
                             TransitionComponent={Fade}
-                            TransitionProps={{ timeout: 200 }}
+                            TransitionProps={{ timeout: 50 }}
                             title={
                                 <Box className="address">
                                     <Typography variant="body1">
@@ -109,7 +109,7 @@ function HeaderNav() {
                         <Tooltip
                             disableFocusListener
                             TransitionComponent={Fade}
-                            TransitionProps={{ timeout: 200 }}
+                            TransitionProps={{ timeout: 50 }}
                             title={<Typography variant='body1'>(212) 777-1887</Typography>}
                         >
                             <Button variant="contained" className="tel" component="a" href='tel:+12127771887' startIcon={<PhoneIcon />} sx={{ borderRadius: "500px", backgroundColor: "#121212", color: "#ffffff", letterSpacing: "0.05rem" }}>
@@ -119,7 +119,7 @@ function HeaderNav() {
                         <CustomWidthTooltip
                             disableFocusListener
                             TransitionComponent={Fade}
-                            TransitionProps={{ timeout: 200 }}
+                            TransitionProps={{ timeout: 50 }}
                             title={<Time />}
                         >
                             {isOpen ?
