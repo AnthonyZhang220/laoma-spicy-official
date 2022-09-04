@@ -1,7 +1,7 @@
 <h1 align="center"> LaoMa Spicy Official</h1> <br>
 <p align="center">
   <a href="https://laomaspicynyc.netlify.app/">
-    <img alt="logo" title="logo" src="./laoma.cover.png" height="150">
+    <img alt="logo" title="logo" src="./laoma_cover.png" height="150">
   </a>
 </p>
 
