@@ -28,7 +28,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 
-My portfolio website is my lastest work. It is a demonstration of my complete skillset, where I try to include as many as elements as possible to sum up my experience in the front-end development.
+Lao Ma Spicy is an authentic chinese restaurant located in Greenwich Village, Manhattan, New York City, well knowned for its Szchuan dry hot pot & spicy hot stew. Its excellent reputation is spreaded across NYU and its adjacant neighborhoods.
 
 <p align="center">
   <img src = "./laoma_cover.png" width=700>
@@ -38,21 +38,29 @@ My portfolio website is my lastest work. It is a demonstration of my complete sk
 
 A few hightlights:
 
-- View my projects in swipeable drawer
+- Order Online
 - Mobile-ready responsive design
-- Entry animation and randomized position of the technology icons
-- Users can Like and Favorite my website with a [backend server](https://github.com/AnthonyZhang220/portfolio-website-server) and a database(MongoDB).
-- View my skillsets in different catogories
-- Form Validation and Recaptcha to prevent Spam and Bot
-- Music Player with essential functionalities
-- Newsletter
+- Easy user actions with the menu and shopping cart
+- Embeded Map
+- Integrated Google Review API and Instagram Basic Display API to display reviews from google maps and posted media and feed from the LaoMa Spicy account.
 
 <p align="center">
   <img src = "./laoma.gif" width=700>
 </p>
-
 <p align="center">
   <img src = "./laoma_hero.png" width=700>
+</p>
+<p align="center">
+  <img src = "./laoma_special.png" width=700>
+</p>
+<p align="center">
+  <img src = "./laoma_info.png" width=700>
+</p>
+<p align="center">
+  <img src = "./laoma_menu.png" width=700>
+</p>
+<p align="center">
+  <img src = "./laoma_checkout.png" width=700>
 </p>
 
 ## Feedback
