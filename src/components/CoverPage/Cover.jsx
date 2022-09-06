@@ -11,25 +11,28 @@ import './Cover.scss';
 export default function Cover() {
 
   const canvasRef = useRef();
+  const videoRef = useRef();
 
 
   useEffect(() => {
-    // const video = canvasRef.current;
-    // const ctx = video.getContext("2d");
-    // let animationFrameId;
+    const video = videoRef.current;
 
-    // function drawVideo() {
-    //   ctx.canvas.width = video.clientWidth;
-    //   ctx.canvas.height = video.clientWidth;
-    //   ctx.drawImage(video, 0, 0, ctx.canvas.width, ctx.canvas.height);
-    // }
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    let animationFrameId;
 
-    // drawVideo();
-    // animationFrameId = window.requestAnimationFrame(drawVideo)
+    function drawVideo() {
+      ctx.canvas.width = canvas.clientWidth;
+      ctx.canvas.height = canvas.clientWidth;
+      ctx.drawImage(video, 0, 0, ctx.canvas.width, ctx.canvas.height);
+    }
 
-    // return () => {
-    //   window.cancelAnimationFrame(animationFrameId)
-    // }
+    drawVideo();
+    animationFrameId = window.requestAnimationFrame(drawVideo)
+
+    return () => {
+      window.cancelAnimationFrame(animationFrameId)
+    }
   }, [])
 
   return (
@@ -43,9 +46,10 @@ export default function Cover() {
             Enter / 进入
           </Button>
         </Box>
-        <canvas id="canvas" ref={canvasRef}>
-          <video className="video" autoPlay loop muted playsInline src={Video} type='video/mp4' />
-        </canvas>
+        <Box>
+          <canvas id="canvas" ref={canvasRef}></canvas>
+          <video className="video" autoPlay loop muted playsInline src={Video} type='video/mp4' preload="auto" ref={videoRef} />
+        </Box>
       </Box>
     </React.Fragment>
   )
