@@ -6,9 +6,6 @@ Variables
 html {
 	scroll-behavior: smooth;
 	-webkit-font-smoothing: antialiased;
-	width: 100%;
-	margin: 0;
-	padding: 0;
 }
 
 /*
@@ -18,11 +15,11 @@ Global Styles
 */
 
 body {
-	margin: 0;
-	padding: 0;
 	position: relative;
 	background: #f2f3f4;
 	font-family: "Open Sans", sans-serif;
+	margin: 0px;
+	padding: 0px;
 	/* background-image:url('./bg.png'); */
 	background-color: #f2f3f4;
 	/* background-size: fill; */

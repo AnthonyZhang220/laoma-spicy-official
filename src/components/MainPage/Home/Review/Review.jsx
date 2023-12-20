@@ -16,67 +16,64 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { getReviewData } from '../../../../api/googleReview';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
-import { Box } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 import { useMediaQuery } from "@mui/material";
+import { ReactComponent as YelpLogo } from "./yelp.svg"
+import getReviewsFromYelp from '../../../../utils/getReviewsFromYelp';
 
 import './Review.scss';
 
 
 export default function Review() {
-    const [data, setData] = useState({});
-    const [number, setNumber] = useState(1);
+    const [reviews, setReviews] = useState(null);
     const isTablet = useMediaQuery('(max-width:1000px)');
     const isMobile = useMediaQuery('(max-width:600px)');
+    const { data, error } = getReviewsFromYelp();
+
 
     useEffect(() => {
-        const reviewData = async () => {
-            await getReviewData();
-        }
-        // setData(reviewData.reviews_data[number])
-    }, [number]);
+        setReviews(data)
+    }, [data])
 
     return (
         <Box className="review" sx={{ display: "flex", justifyContent: 'center', alignItem: "center", backgroundColor: "#f2f3f4", m: 1, p: 1 }} >
             <Box className="review-flex-container">
-                <Card sx={{ maxWidth: isMobile ? 350 : 400, maxHeight: isMobile ? 650 : 700, borderRadius: "18px", boxShadow: "rgb(0 0 0 / 10%) 0px 10px 50px", }}>
-                    <CardHeader
-                        avatar={
-                            <Avatar alt={data.author_title ? data.author_title : "Jessica Wong"} src={data.author_image ? data.author_image : "https://lh3.googleusercontent.com/a-/AFdZucraph7YVSHQq8cFcKWWFWn5ugrtUCL-PRTi8cfk=w36-h36-p-c0x00000000-rp-mo-ba4-br100"} aria-label="author" />
-                        }
-                        action={
-                            <React.Fragment>
-                                <IconButton aria-label="add to favorites">
-                                    <FavoriteIcon />
+                {reviews?.map(({ id, url, text, rating, time_created, user }) => (
+                    <Card sx={{ maxWidth: isMobile ? 350 : 400, maxHeight: isMobile ? 650 : 700, borderRadius: "18px", boxShadow: "rgb(0 0 0 / 10%) 0px 10px 50px", }} key={id}>
+                        <CardHeader
+                            avatar={
+                                <Avatar alt={user.name} src={user.profile_url} aria-label="author" />
+                            }
+                            action={
+                                <IconButton aria-label="Go to Yelp" onClick={() => window.location.href(url)}>
+                                    <YelpLogo />
                                 </IconButton>
-                                <IconButton aria-label="share">
-                                    <ShareIcon />
-                                </IconButton>
-                            </React.Fragment>
-                        }
-                        title={data.author_title ? data.author_title : "Jessica Wong"}
-                        subheader={data.review_datetime_utc || null}
-                    />
-                    <CardMedia
-                        component="img"
-                        height="194"
-                        image={data.review_img_url ? data.review_img_url : "https://lh5.googleusercontent.com/p/AF1QipOFMFcmZwY6R4cF0HWADToKQX3eFyaIF9vrYMg=w300-h450-p-k-no"}
-                        alt={data.author_title ? data.author_title : null}
-                    />
-                    <CardContent>
-                        <Stack spacing={1} sx={{ mb: 1 }} direction="row">
-                            <Rating
-                                name="read-only"
-                                value={data.review_rating ? data.review_rating : 5}
-                                readOnly
-                                precision={0.5}
-                            />
-                            <Box sx={{ ml: 2 }}>{data.review_rating ? `${data.review_rating / 5}` : `5 / 5`}</Box>
-                        </Stack>
-                        <Typography variant="body2" color="text.secondary">
-                            {data.review_text ? data.review_text : "I have already ordered takeout here so many times and I love this place so much. The chili oil wontons are honestly so marvelous, I love how it’s the right amount of spicy and garlicky. The beef spicy stew is also so good and yummy, and I always appreciate how they give such a generous amount of beef and noodles. There is also the perfect amount of heat and spice in every bite that makes me crave this every week."}
-                        </Typography>
-                    </CardContent>
-                </Card>
+                            }
+                            title={user.name}
+                            subheader={time_created}
+                        />
+                        <CardMedia
+                            component="img"
+                            height="194"
+                            image={user.image_url}
+                            alt={user.image_url}
+                        />
+                        <CardContent>
+                            <Stack spacing={1} sx={{ mb: 1 }} direction="row">
+                                <Rating
+                                    name="read-only"
+                                    value={rating}
+                                    readOnly
+                                    precision={0.5}
+                                />
+                                <Box sx={{ ml: 2 }}>{`${rating / 5}`}</Box>
+                            </Stack>
+                            <Typography variant="body2" color="text.secondary">
+                                {text}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                ))}
                 <Box sx={{ display: "flex", m: 1, p: 1, justifyContent: "center", alignItems: "center", }}>
                     <Box
                         component="a"
@@ -88,7 +85,9 @@ export default function Review() {
                             m: 1,
                             p: 2,
                         }}>
-                        <img src="./images/icons/instagram.png" style={{ display: "block" }} alt="instagram" height="50px" width="50px" />
+                        <Tooltip title={"Instagram"}>
+                            <img src="./images/icons/instagram.png" style={{ display: "block" }} alt="instagram" height="50px" width="50px" />
+                        </Tooltip>
                     </Box>
                     <Box textAlign="center"
                         component="a"
@@ -100,7 +99,9 @@ export default function Review() {
                             m: 1,
                             p: 2,
                         }}>
-                        <img src="./images/icons/facebook.png" alt="facebook" height="50px" width="50px" style={{ display: "block" }} />
+                        <Tooltip title={"Facebook"}>
+                            <img src="./images/icons/facebook.png" alt="facebook" height="50px" width="50px" style={{ display: "block" }} />
+                        </Tooltip>
                     </Box>
                     <Box
                         component="a"
@@ -112,7 +113,9 @@ export default function Review() {
                             m: 1,
                             p: 2,
                         }}>
-                        <img src="./images/icons/yelp.png" alt="yelp" height="50px" width="50px" style={{ display: "block" }} />
+                        <Tooltip title={"Yelp"}>
+                            <img src="./images/icons/yelp.png" alt="yelp" height="50px" width="50px" style={{ display: "block" }} />
+                        </Tooltip>
                     </Box>
                 </Box>
             </Box>

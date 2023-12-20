@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Cover from "./components/CoverPage/Cover"
 import HeaderNav from "./components/MainPage/HeaderNav/HeaderNav";
@@ -8,6 +8,8 @@ import Footer from "./components/MainPage/Footer/Footer";
 import Menu from "./components/MainPage/Menu/Menu";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useMediaQuery } from "@mui/material";
+
+import "./App.scss";
 
 
 

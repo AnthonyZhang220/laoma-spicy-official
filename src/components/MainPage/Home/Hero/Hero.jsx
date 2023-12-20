@@ -1,7 +1,7 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import { Typography } from '@mui/material';
+import { Tooltip, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import { useMediaQuery } from "@mui/material";
 
@@ -25,7 +25,7 @@ export default function Hero() {
                         gridTemplateRows: "repeat(5, minmax(0, 1fr))",
                         background: "url('./images/bg.jpg')",
                         backgroundRepeat: "no-repeat",
-                        backgroundSize: "fill",
+                        backgroundSize: "cover",
                         backgroundPosition: "center center",
                     }}>
                     <Box className="hero-text-wrapper"
@@ -75,12 +75,16 @@ export default function Hero() {
                                     </Box>
                                     <Box>
                                         <a href="https://www.ubereats.com/store/lao-ma-spicy-%E8%80%81%E5%AA%BD%E9%BA%BB%E8%BE%A3%E7%87%99/7BL09unDTgOoPhVr8lEmVw" target="_blank" rel='noreferrer'>
-                                            <img src="./images/icons/ubereats.png" alt="ubereats" height="50px" width="50px" style={{ display: "block" }} />
+                                            <Tooltip title={"Uber Eat"}>
+                                                <img src="./images/icons/ubereats.png" alt="ubereats" height="50px" width="50px" style={{ display: "block" }} />
+                                            </Tooltip>
                                         </a>
                                     </Box>
                                     <Box>
                                         <a href='https://www.facebook.com/laomaspicy/' target="_blank" rel='noreferrer'>
-                                            <img src="./images/icons/hungrypanda.webp" alt="hungrypanda" height="50px" width="50px" style={{ borderRadius: "10px", display: "block" }} />
+                                            <Tooltip title={"Panda"}>
+                                                <img src="./images/icons/hungrypanda.webp" alt="hungrypanda" height="50px" width="50px" style={{ borderRadius: "10px", display: "block" }} />
+                                            </Tooltip>
                                         </a>
                                     </Box>
                                 </Box>
