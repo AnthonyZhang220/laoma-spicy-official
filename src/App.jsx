@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Cover from "./components/CoverPage/Cover"
 import HeaderNav from "./components/MainPage/HeaderNav/HeaderNav";
@@ -6,74 +6,63 @@ import Home from "./components/MainPage/Home/Home";
 import Cart from "./components/MainPage/Cart/Cart";
 import Footer from "./components/MainPage/Footer/Footer";
 import Menu from "./components/MainPage/Menu/Menu";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { useMediaQuery } from "@mui/material";
-
+import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import "./App.scss";
+import SpeedDialMenu from "./components/MainPage/SpeedDialMenu/SpeedDialMenu";
+import Booking from "./components/MainPage/Home/Booking/Booking";
 
 
 
-const AppLayout = () => (
+const AppLayout = ({ openMobileMenu, handleMobileMenu }) => (
     <>
-        <HeaderNav />
+        <HeaderNav openMobileMenu={openMobileMenu} handleMobileMenu={handleMobileMenu} />
         <Outlet />
         <Cart />
+        <Booking />
         <Footer />
     </>
 )
 
 const App = () => {
-    const isTablet = useMediaQuery('(max-width:1000px)');
-    const isMobile = useMediaQuery('(max-width:650px)');
+    const [openBooking, setOpenBooking] = useState(false);
+    const [openMobileMenu, setOpenMobileMenu] = useState(true);
+    const handleOpenBooking = () => {
+        setOpenBooking(true);
+    }
 
-    const theme = createTheme({
+    const handleCloseBooking = () => {
+        setOpenBooking(false);
+    }
+    const handleMobileMenu = () => {
+        setOpenMobileMenu((prevOpenMobileMenu) => !prevOpenMobileMenu);
+    }
+
+    let theme = createTheme({
         palette: {
             primary: {
                 main: "#c59d5f",
             },
         },
         typography: {
-            fontFamily: ["Open Sans", "sans-serif"].join(","),
-            h1: {
-                fontSize: isTablet ? isMobile ? "3.25rem" : "4rem" : "5rem",
-                fontWeight: 500,
-            },
-            h2: {
-                fontSize: isTablet ? isMobile ? "2.75rem" : "3.25rem" : "4rem",
-                fontWeight: 500,
-            },
-            h3: {
-                fontSize: isTablet ? isMobile ? "2.25rem" : "2.75rem" : "3.25rem",
-                fontWeight: 500,
-            },
-            h4: {
-                fontSize: isTablet ? isMobile ? "1.75rem" : "2rem" : "2.25rem",
-                fontWeight: 500,
-            },
-            h5: {
-                fontSize: isTablet ? isMobile ? "1.25rem" : "1.5rem" : "1.5rem",
-                fontWeight: 500,
-            },
-            h6: {
-                fontSize: isTablet ? isMobile ? "0.75rem" : "1rem" : "1.25rem",
-                fontWeight: 500,
-            },
+            fontFamily: ["Helvetica", "sans-serif"].join(","),
         }
     });
+
+    theme = responsiveFontSizes(theme)
 
     return (
         <ThemeProvider theme={theme}>
             <Router>
-                <Suspense fallback={<div>Loading your favorite Hot Spicy Stew...</div>}>
-                    <Routes>
-                        <Route exact path="/" element={<Cover />} />
-                        <Route element={<AppLayout />}>
-                            <Route path="/home" element={<Home />} />
-                            <Route path="/menu" element={<Menu />} />
-                        </Route>
-                    </Routes>
-                </Suspense>
+                <Routes>
+                    <Route exact path="/" element={<Cover />} />
+                    <Route element={<AppLayout openMobileMenu={openMobileMenu} handleMobileMenu={handleMobileMenu} />}>
+                        <Route path="/home" element={<Home openMobileMenu={openMobileMenu} />} />
+                        <Route path="/menu" element={<Menu openMobileMenu={openMobileMenu} />} />
+                    </Route>
+                </Routes>
             </Router>
+            <Booking openBooking={openBooking} handleCloseBooking={handleCloseBooking} />
+            <SpeedDialMenu handleOpenBooking={handleOpenBooking} />
         </ThemeProvider>
     );
 

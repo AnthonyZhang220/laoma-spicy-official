@@ -1,9 +1,7 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import { Typography } from '@mui/material'
-import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { useMediaQuery } from "@mui/material";
@@ -12,7 +10,6 @@ import "./Special.scss"
 
 export default function Special() {
 
-  const isTablet = useMediaQuery('(max-width:1000px)');
   const isMobile = useMediaQuery('(max-width:600px)');
 
   const specialDish = [
@@ -26,31 +23,16 @@ export default function Special() {
       name: "MaLa XiangGuo|麻辣香锅",
       description: "MaLa XiangGuo is a Chinese dish prepared by stir frying. The preparation process involves placing the required ingredients in the pot, stir frying and adding seasoning."
     },
-    {
-      img: "./images/entree.jpg",
-      name: "Appetizer|小吃",
-      description: "Steamed / Fried dumplings. "
-    },
+    // {
+    //   img: "./images/entree.jpg",
+    //   name: "Appetizer|小吃",
+    //   description: "Steamed / Fried dumplings. "
+    // },
   ]
   return (
-    <Box className="special"
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        pt: "50px",
-        pb: "100px",
-        margin: "0 auto",
-        maxWidth: "1400px",
-        flexDirection: "column",
-      }}>
-      <Box className="special-title" sx={{
-        display: "flex", flexDirection: "column", justifyContent: "center",
-        alignItems: "center",
-        m: 2,
-        p: 2,
-      }}>
-        <Typography variant="h2" textAlign="center" letterSpacing={2}>
+    <Box className="special">
+      <Box className="special-title">
+        <Typography variant="h3" textAlign="center" letterSpacing={2}>
           Our Special
         </Typography>
         <Typography variant="h5" textAlign="center">

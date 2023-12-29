@@ -1,0 +1,26 @@
+.review {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1rem;
+	padding: 1rem;
+
+	.review-grid {
+		display: grid;
+		grid-template-rows: 1fr 1fr 1fr;
+
+		gap: 1rem;
+		.review-card {
+			border-radius: 1rem;
+			box-shadow: rgb(0 0 0 / 10%) 0px 10px 50px;
+		}
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.review {
+		.review-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+}

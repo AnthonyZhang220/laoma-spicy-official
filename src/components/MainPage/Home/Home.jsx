@@ -1,25 +1,18 @@
-import Review from './Review/Review'
-import MapContainer from './GoogleMap/GoogleMap'
 import Special from './Special/Special';
 import Hero from './Hero/Hero';
 import Info from './Info/Info';
-import Booking from './Booking/Booking';
-import Map from './Map/Map';
 import Gallery from './Gallery/Gallery';
+import { Box } from '@mui/material';
 
 import "./Home.scss";
 
-export default function Home() {
+export default function Home({ openMobileMenu }) {
     return (
-        <>
+        <Box className={openMobileMenu ? "main" : "menu-open"} id="main">
             <Hero />
-            <Booking />
             <Special />
             <Gallery />
-            {/* <Review />
-            <Map /> */}
             <Info />
-            {/* <MapContainer /> */}
-        </>
+        </Box>
     )
 }

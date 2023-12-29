@@ -8,12 +8,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions, IconButton } from '@mui/material';
+import { CardActions, IconButton } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Rating from '@mui/material/Rating';
-
-import { useMediaQuery } from "@mui/material";
-
 
 import './Items.scss'
 
@@ -38,9 +35,6 @@ function ChiliIcon() {
 // });
 
 const Items = ({ itemdetails, addToCart }) => {
-
-    const isTablet = useMediaQuery('(max-width:1000px)');
-    const isMobile = useMediaQuery('(max-width:600px)');
 
     const [value, setValue] = useState(2);
     const [hover, setHover] = useState(-1);
@@ -107,9 +101,12 @@ const Items = ({ itemdetails, addToCart }) => {
                             <Typography variant="h5">
                                 ${price}
                             </Typography>
-                            <Typography variant="body1" color="text.secondary">
-                                {description}
-                            </Typography>
+                            {
+                                description.length !== 0 &&
+                                <Typography variant="body1" color="text.secondary">
+                                    {description}
+                                </Typography>
+                            }
                         </CardContent>
                         <CardActions sx={{
                             position: "absolute",

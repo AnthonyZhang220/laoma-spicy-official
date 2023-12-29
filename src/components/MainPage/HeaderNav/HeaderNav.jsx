@@ -4,37 +4,12 @@ import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import PhoneIcon from '@mui/icons-material/Phone';
-import PlaceIcon from '@mui/icons-material/Place';
-import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
-import Button from '@mui/material/Button';
-import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
-import Fade from '@mui/material/Fade';
-import Time from '../Home/Time/Time';
-import { styled } from '@mui/material/styles';
-import { Typography } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
-
+import { Button } from '@mui/material';
 
 import './HeaderNav.scss';
 
-
-const CustomWidthTooltip = styled(({ className, ...props }) => (
-    <Tooltip {...props} classes={{ popper: className }} />
-))({
-    [`& .${tooltipClasses.tooltip}`]: {
-        maxWidth: "300px",
-    },
-});
-
-function HeaderNav() {
-    const [click, setClick] = useState(false);
+function HeaderNav({ openMobileMenu, handleMobileMenu }) {
     const [navbar, setNavbar] = useState(false);
-
-    const [isOpen, setIsOpen] = useState(true);
-
-    const handleClick = () => setClick(!click)
-    const closeMobileMenu = () => setClick(false);
 
     const changeBackground = () => {
         if (window.scrollY >= 50) {
@@ -44,98 +19,41 @@ function HeaderNav() {
         }
     }
 
-    function getIfOpen() {
-        const date = new Date();
-        const hour = ('00' + date.getHours()).slice(-2);
-        const minute = ('00' + date.getMinutes()).slice(-2);
-        const currentTime = hour + ":" + minute;
-        if (currentTime > "11:00" && currentTime < "21:30") {
-            setIsOpen(true)
-        } else {
-            setIsOpen(false)
-        }
-    }
 
     useEffect(() => {
-        getIfOpen();
-    }, [isOpen])
-
-    window.addEventListener('scroll', changeBackground)
+        window.addEventListener('scroll', changeBackground)
+        return () => {
+            window.removeEventListener("scroll", changeBackground)
+        }
+    })
 
     return (
-        <React.Fragment>
-            <nav className={`NavItems ${navbar ? "active" : ""}`}>
-                <Box className="menu_icon" onClick={handleClick}>
-                    {click ? <CloseIcon sx={{ fontSize: 40 }} /> : <MenuIcon sx={{ fontSize: 40 }} />}
+        <>
+            <nav className={`nav nav_mobile ${navbar ? "active" : ""} ${openMobileMenu ? "" : "mobile_menu_open"}`}>
+                <Box className="menu_icon" onClick={handleMobileMenu}>
+                    {!openMobileMenu ? <CloseIcon sx={{ fontSize: 40 }} /> : <MenuIcon sx={{ fontSize: 40 }} />}
                 </Box>
-                <Box className={`nav_menu ${click ? "active" : ""}`}>
-                    {NavItems.map((item, index) => {
-                        return (
-                            <Box key={index}>
-                                <Link onClick={closeMobileMenu} className={`nav_links ${navbar ? "active" : ""}`} to={item.url}>
-                                    {item.title.toUpperCase()}
-                                </Link>
-                            </Box>
-                        )
-                    })}
-                    <Box className="nav_menu_button"
-                        sx={{
-                            position: "absolute",
-                            right: 0,
-                            '& > a': {
-                                m: 1
-                            }
-                        }}
-                    >
-                        <Tooltip
-                            disableFocusListener
-                            TransitionComponent={Fade}
-                            TransitionProps={{ timeout: 50 }}
-                            title={
-                                <Box className="address">
-                                    <Typography variant="body1">
-                                        <span>58 E 8</span>
-                                        <sup className="sup">th</sup>
-                                        &nbsp;
-                                        <span>Street, New York 10003</span>
-                                    </Typography>
+                <Box className="nav_container">
+                    <Box className="nav_menu_link">
+                        {NavItems.map((item, index) => {
+                            return (
+                                <Box key={index}>
+                                    <Link onClick={openMobileMenu ? null : handleMobileMenu} className={`nav_links ${navbar ? "active" : ""}`} to={item.url}>
+                                        {item.title.toUpperCase()}
+                                    </Link>
                                 </Box>
-                            }
-                        >
-                            <Button variant="contained" className="address" component="a" href='https://goo.gl/maps/NwvfQMkCZcUZZY8u9' startIcon={<PlaceIcon />} sx={{ borderRadius: "500px", backgroundColor: "#121212", color: "#ffffff", letterSpacing: "0.05rem" }}>
-                                Location
-                            </Button>
-                        </Tooltip>
-                        <Tooltip
-                            disableFocusListener
-                            TransitionComponent={Fade}
-                            TransitionProps={{ timeout: 50 }}
-                            title={<Typography variant='body1'>(212) 777-1887</Typography>}
-                        >
-                            <Button variant="contained" className="tel" component="a" href='tel:+12127771887' startIcon={<PhoneIcon />} sx={{ borderRadius: "500px", backgroundColor: "#121212", color: "#ffffff", letterSpacing: "0.05rem" }}>
-                                Call Us
-                            </Button>
-                        </Tooltip>
-                        <CustomWidthTooltip
-                            disableFocusListener
-                            TransitionComponent={Fade}
-                            TransitionProps={{ timeout: 50 }}
-                            title={<Time />}
-                        >
-                            {isOpen ?
-                                <Button variant="contained" className="working-hours" component="a" startIcon={<AccessTimeFilledIcon />} sx={{ borderRadius: "500px", backgroundColor: "#121212", color: "#ffffff", letterSpacing: "0.05rem" }}>
-                                    Open
-                                </Button> :
-                                <Button variant="contained" className="working-hours" component="a" startIcon={<AccessTimeFilledIcon />} sx={{ borderRadius: "500px", backgroundColor: "#121212", color: "#ffffff", letterSpacing: "0.05rem" }}>
-                                    Closed
-                                </Button>
-                            }
-                        </CustomWidthTooltip>
+                            )
+                        })}
+                    </Box>
+                    <Box className="nav-buttons">
+                        <Button variant='contained' sx={{ fontSize: 20, borderRadius: "500px", backgroundColor: "#121212", color: "#ffffff" }} component="a" href="https://qmenu.us/#/lao-ma-spicy-new-york">
+                            Order Now
+                        </Button>
                     </Box>
                 </Box>
-            </nav >
-        </React.Fragment >
-    );
+            </nav>
+        </>
+    )
 }
 
 export default HeaderNav;

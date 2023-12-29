@@ -1,6 +1,5 @@
 import React from 'react';
 import { timedetails } from './timedetails';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
 import "./Time.scss";
@@ -9,9 +8,7 @@ import { Typography } from '@mui/material';
 
 export default function Time() {
     return (
-        <Grid className="time-grid-container" container
-            sx={{
-            }}>
+        <Grid className="time-grid-container" container >
             {
                 timedetails?.map(({ day, time }, index) => (
                     <Grid

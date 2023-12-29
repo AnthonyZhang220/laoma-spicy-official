@@ -5,8 +5,9 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import { Modal } from '@mui/material';
 
-export default function Booking() {
+export default function Booking({ openBooking, handleCloseBooking }) {
 
     function getDate() {
         const date = new Date();
@@ -97,66 +98,68 @@ export default function Booking() {
         })
     }
     return (
-        <Box className="book-table"
-            sx={{
-                backgroundColor: "#f2f3f4"
-            }}>
-            <Box className="book-table-flex-container"
+        <Modal open={openBooking} onClose={handleCloseBooking}>
+            <Box className="book-table"
                 sx={{
-                    margin: "0 auto",
-                    maxWidth: "1200px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    p: "30px",
-                    
+                    backgroundColor: "#f2f3f4"
                 }}>
-                <Card elevation={0}
+                <Box className="book-table-flex-container"
                     sx={{
-                        borderRadius: "18px",
-                        boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-                        m: 1,
-                        p: 1,
+                        margin: "0 auto",
+                        maxWidth: "1200px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        p: "30px",
+
                     }}>
-                    <Grid
-                        component="form"
-                        container
+                    <Card elevation={0}
                         sx={{
-                            '& > :not(style)': { p: 2, width: '25ch' },
+                            borderRadius: "18px",
+                            boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                            m: 1,
+                            p: 1,
                         }}>
-                        {
-                            formSettings?.map(({ id, label, type, name, autoComplete, variant, max, min }, index) => (
-                                <Grid item xs={12} md={4} textAlign="center" key={index} >
-                                    <TextField
-                                        key={index}
-                                        fullWidth={true}
-                                        name={name}
-                                        id={id}
-                                        required
-                                        label={label}
-                                        variant={variant}
-                                        autoComplete={autoComplete}
-                                        type={type}
-                                        size="small"
-                                        value={input[name]}
-                                        onChange={e => handleFormInput(e)}
-                                        inputProps={{
-                                            max: max ? max : null,
-                                            min: min ? min : null,
-                                        }
-                                        }
-                                    />
-                                </Grid>
-                            ))
-                        }
-                        <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "start" }}>
-                            <Button variant="outlined" type="submit" onClick={e => handleFormSubmit(e)}>
-                                Book a Table
-                            </Button>
+                        <Grid
+                            component="form"
+                            container
+                            sx={{
+                                '& > :not(style)': { p: 2, width: '25ch' },
+                            }}>
+                            {
+                                formSettings?.map(({ id, label, type, name, autoComplete, variant, max, min }, index) => (
+                                    <Grid item xs={12} md={4} textAlign="center" key={index} >
+                                        <TextField
+                                            key={index}
+                                            fullWidth={true}
+                                            name={name}
+                                            id={id}
+                                            required
+                                            label={label}
+                                            variant={variant}
+                                            autoComplete={autoComplete}
+                                            type={type}
+                                            size="small"
+                                            value={input[name]}
+                                            onChange={e => handleFormInput(e)}
+                                            inputProps={{
+                                                max: max ? max : null,
+                                                min: min ? min : null,
+                                            }
+                                            }
+                                        />
+                                    </Grid>
+                                ))
+                            }
+                            <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "start" }}>
+                                <Button variant="outlined" type="submit" onClick={e => handleFormSubmit(e)}>
+                                    Book a Table
+                                </Button>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </Card>
+                    </Card>
+                </Box>
             </Box>
-        </Box>
+        </Modal>
     )
 }

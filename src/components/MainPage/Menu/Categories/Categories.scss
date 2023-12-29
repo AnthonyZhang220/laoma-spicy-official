@@ -1,4 +1,16 @@
 .btn_container {
-	margin-bottom: 4rem;
-	padding-top: 1rem;
+	position: sticky;
+	top: 0;
+	z-index: 2;
+	background-color: #f2f2f2;
+	.menu_header {
+		position: sticky;
+		top: 0;
+		width: 100%;
+		min-height: 4rem;
+		background-color: #ffffff;
+	}
+	.categories {
+		padding: 1rem 0 0 0;
+	}
 }

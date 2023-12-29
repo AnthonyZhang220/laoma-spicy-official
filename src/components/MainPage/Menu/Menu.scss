@@ -1,17 +1,14 @@
+.mobile_menu_open {
+	transition: all 0.5s;
+	transform: translateX(-200px);
+}
 /* section */
-section {
-	/* width: 95vw; */
-	margin: 0 auto;
-	margin-top: 60px;
-	margin-bottom: 60px;
-	background-color: #f2f2f2;
 
-	.menu {
-		.menu-container {
-			max-width: 1400px;
-			margin: 0 auto;
-			background-color: #f2f2f2;
-			height: 100%;
-		}
-	}
+.menu {
+	margin: 0 auto;
+	display: block;
+	background-color: #f2f2f2;
+	transition: all 0.5s;
+	transform: translateX(0px);
+
 }

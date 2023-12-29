@@ -8,7 +8,7 @@ import './Menu.scss';
 
 const allCategories = ['all', ...new Set(itemdetails.map((item) => item.category))];
 
-function Menu() {
+function Menu({ openMobileMenu }) {
     const [menuItems, setMenuItems] = useState(itemdetails);
     const [categories] = useState(allCategories);
 
@@ -22,12 +22,10 @@ function Menu() {
     };
 
     return (
-        <section className="menu">
-            <Box className="menu-container">
-                <Categories categories={categories} filterItems={filterItems} />
-                <Items itemdetails={menuItems} />
-            </Box>
-        </section>
+        <Box className={openMobileMenu ? "menu" : "mobile_menu_open"}>
+            <Categories categories={categories} filterItems={filterItems} />
+            <Items itemdetails={menuItems} />
+        </Box>
     );
 }
 

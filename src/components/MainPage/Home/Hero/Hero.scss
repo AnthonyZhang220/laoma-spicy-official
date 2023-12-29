@@ -1,2 +1,29 @@
 .hero {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+		url("../../../../../public/images/bg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: 100vh;
+	color: #ffffff;
+
+	.hero-logo {
+		opacity: 0.95;
+		height: 350px;
+		width: 250px;
+		object-fit: cover;
+		border-radius: 20px;
+		img {
+			display: block;
+		}
+	}
+
+	.hero-title {
+		display: flex;
+	}
 }
