@@ -7,8 +7,7 @@ export default function Map() {
                 borderRadius: "18px",
                 boxShadow: "rgb(0 0 0 / 10%) 0px 10px 50px",
                 height: "100%",
-                marginLeft: 15,
-                marginRight: 15,
+                width: "100%",
                 flex: "1 1 auto"
             }}
             title="Google Map"

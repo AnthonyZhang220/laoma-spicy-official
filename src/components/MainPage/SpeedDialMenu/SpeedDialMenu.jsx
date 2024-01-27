@@ -9,23 +9,46 @@ import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 
 import "./SpeedDialMenu.scss"
+import { Tooltip, Typography } from '@mui/material';
 
 
 export default function SpeedDialMenu({ handleOpenBooking }) {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isRestaurantOpen, setIsRestaruantOpen] = useState(true);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const handleCall = () => {
+        window.location.href = "tel:+12127771887";
+        handleClose();
+    }
+
+    const handleLocation = () => {
+        window.location.href = "https://maps.app.goo.gl/NHTVvDUaPTg5Fyoy9"
+        handleClose();
+    }
+
     const actions = [
-        { icon: <RestaurantIcon />, name: 'Book a Table', action: handleOpenBooking },
-        { icon: <PhoneIcon />, name: 'Call Us', action: handleClose },
-        { icon: <PlaceIcon />, name: 'Location', action: handleClose },
-        { icon: <AccessTimeFilledIcon />, name: isOpen ? 'Open Now' : "Closed", action: handleClose },
+        { icon: <RestaurantIcon />, name: <Typography>Book a Table</Typography>, action: handleOpenBooking },
+        { icon: <PhoneIcon />, name: <Typography>Call Us</Typography>, action: handleCall },
+        { icon: <PlaceIcon />, name: <Typography>Locate Us</Typography>, action: handleLocation },
+        {
+            icon: <AccessTimeFilledIcon />,
+            name: isRestaurantOpen ?
+                <Typography>
+                    Open Now
+                </Typography> :
+                <Typography>
+                    Closed
+                </Typography>,
+            action: handleClose
+        },
     ];
+
+
     useEffect(() => {
         getIfOpen();
-    }, [isOpen])
+    }, [isRestaurantOpen])
 
     function getIfOpen() {
         const date = new Date();
@@ -33,15 +56,15 @@ export default function SpeedDialMenu({ handleOpenBooking }) {
         const minute = ('00' + date.getMinutes()).slice(-2);
         const currentTime = hour + ":" + minute;
         if (currentTime > "11:00" && currentTime < "21:30") {
-            setIsOpen(true)
+            setIsRestaruantOpen(true)
         } else {
-            setIsOpen(false)
+            setIsRestaruantOpen(false)
         }
     }
     return (
         <Box sx={{ transform: 'translateZ(0px)', flexGrow: 1, position: "fixed", bottom: 0, right: 0, zIndex: 1000 }}>
             <SpeedDial
-                ariaLabel="SpeedDial tooltip example"
+                ariaLabel="SpeedDial Menu"
                 sx={{ position: 'absolute', bottom: 16, right: 16 }}
                 icon={<SpeedDialIcon />}
                 onClose={handleClose}
@@ -56,7 +79,6 @@ export default function SpeedDialMenu({ handleOpenBooking }) {
                         PopperProps={{
                             style: { maxWidth: 'none' },
                         }}
-                        tooltipOpen
                         FabProps={{ size: "large" }}
                         onClick={action.action}
                     />

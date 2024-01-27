@@ -36,10 +36,10 @@ export default function Review() {
         <Box className="review">
             <Box className="review-grid">
                 {reviews?.filter((item) => item.rating > 3).map(({ authorAttribution, text, rating, relativePublishTimeDescription, name }) => (
-                    <Card sx={{ maxWidth: isMobile ? 350 : 400, maxHeight: isMobile ? 650 : 700, }} key={name} onClick={() => window.location.href = authorAttribution.uri}>
+                    <Card className="review-card" sx={{ maxWidth: isMobile ? 350 : 400, maxHeight: isMobile ? 650 : 700, }} key={name}>
                         <CardHeader
                             avatar={
-                                <Avatar variant='rounded' alt={authorAttribution.photoUri} src={authorAttribution.photoUri} aria-label="author" sx={{ width: "4rem", height: "4rem" }} />
+                                <Avatar variant='rounded' alt={authorAttribution.photoUri} src={authorAttribution.photoUri} aria-label="author" sx={{ width: "3rem", height: "3rem" }} />
                             }
                             action={
                                 <IconButton aria-label="Go to Google Map Review" onClick={() => window.location.href = authorAttribution.uri}>
@@ -47,7 +47,7 @@ export default function Review() {
                                 </IconButton>
                             }
                             title={authorAttribution.displayName}
-                            titleTypographyProps={{ fontSize: "1.25rem" }}
+                            titleTypographyProps={{ fontSize: "1rem" }}
                             subheader={relativePublishTimeDescription}
                         />
                         <CardContent>
@@ -60,7 +60,7 @@ export default function Review() {
                                 />
                                 <Box sx={{ ml: 2 }}>{`${rating} / 5`}</Box>
                             </Stack>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography variant="body2" color="text.secondary" className='review-text'>
                                 {text.text}
                             </Typography>
                         </CardContent>
